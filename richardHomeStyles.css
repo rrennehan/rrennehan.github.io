@@ -1,0 +1,62 @@
+@charset "UTF-8";
+
+/*	richardHomeStyles.css
+	Contains rules exclusively for home page	*/
+
+/*Mobile Styles*/
+@media only screen and (max-width: 480px) {
+	article h1 {
+		display: block;
+		text-align: center;
+		font-size: 2rem;
+		background-color: hsl(184, 67%, 75%);
+	}
+	
+	article {
+		font-size: 1.5rem;
+	}
+	
+	aside img {
+		margin-bottom: 10px;
+	}
+}
+
+/*Tablet and Desktop Styles*/
+@media only screen and (min-width: 481px){
+	main {
+		display: -webkit-flex;
+		display: flex;
+		-webkit-flex-flow: row wrap;
+		flex-flow: row wrap;
+		align-items: flex-start;
+	}
+
+	article {
+		background-color: white;
+		font-size: 2rem;
+		border: 1px solid black;
+	}
+
+	article h1 {
+		text-align: center;
+		font-size: 3rem;
+		display: block;
+		background-color: gray;
+	}
+
+	article:first-child {
+		width: 50%;
+		flex: 1 1 200px;
+		margin: 20px 20px 20px 20px;
+	}
+
+	main aside {
+		display: -webkit-flex;
+		display: flex;
+		flex: 1 1 200px;
+		margin: 75px 20px 20px 50px;
+	}
+	
+	
+}
+
