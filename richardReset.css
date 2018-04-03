@@ -24,7 +24,7 @@ nav ul {
 	list-style-image: none;
 }
 
-/*Gets rid of underline and blue highlight for navigation links*/
+/*Gets rid of underline for navigation links*/
 a {
 	text-decoration: none;
 }
