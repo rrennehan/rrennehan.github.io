@@ -47,14 +47,14 @@
 	article:first-child {
 		width: 50%;
 		flex: 1 1 200px;
-		margin: 20px 20px 20px 20px;
+		margin: 20px 20px 20px 50px;
 	}
 
 	main aside {
 		display: -webkit-flex;
 		display: flex;
 		flex: 1 1 200px;
-		margin: 75px 20px 20px 50px;
+		margin: 75px 20px 20px 75px;
 	}
 	
 	

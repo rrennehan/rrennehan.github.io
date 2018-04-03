@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
-/*	richardGeneralStyles.css
-	Contains rules used across all pages	*/
+/*	richardResumeStyles.css
+	Same as general rules except with flexbox removed from main element	*/
 
 html {
 	margin: 0 auto;
@@ -70,6 +70,11 @@ main {
 	min-height: 486px;
 }
 
+main {
+	font-size: 14px;
+	font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+}
+
 footer {
 	width: 100%;
 	font-size: 2rem;
@@ -108,15 +113,9 @@ div#social {
 	
 /*Other Rules*/	
 
-/*Adds extra line after each paragraph*/
-p::after {
-	display: block;
-	content: "\A";
-	white-space: pre;
-}
 
-article p {
-	padding: 0px 2px 0px 2px;
+main p, main li {
+	padding-left: 3px;
 }
 
 a:hover {
@@ -160,18 +159,6 @@ a:hover {
 	}
 }
 
-/*Tablet and Desktop Styles */
-@media only screen and (min-width: 481px){
-	main {
-		display: -webkit-flex;
-		display: flex;
-		-webkit-flex-flow: row wrap;
-		flex-flow: row wrap;
-		-webkit-align-items: flex-start;
-		align-items: flex-start;
-	}
-	
-}
 
 
 

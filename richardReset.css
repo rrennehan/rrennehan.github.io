@@ -34,9 +34,3 @@ nav a {
 	color: black;
 }
 
-/*Adds extra line after each paragraph*/
-p::after {
-	display: block;
-	content: "\A";
-	white-space: pre;
-}
