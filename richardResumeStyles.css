@@ -141,10 +141,11 @@ a:hover {
 	
 	#mobileExclusive {
 		display: block;
+		margin-bottom: 10px;
 	}
 	
 	html {
-		font-size: 14px;
+		font-size: 16px;
 	}
 	
 	main article {
@@ -172,7 +173,7 @@ a:hover {
 	
 	nav ul li {
 		width: 100%;
-		font-size: 2rem;
+		font-size: 1.5rem;
 		line-height: 3rem;
 	}
 	
