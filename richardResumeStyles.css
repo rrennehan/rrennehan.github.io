@@ -6,7 +6,7 @@
 html {
 	margin: 0 auto;
 	max-width: 960px;
-	font-size: 12px;
+	font-size: 14px;
 	background: url(images\\richardBackground.png) center center / cover no-repeat fixed;
 	border: 1.5px solid black;
 	
@@ -20,6 +20,10 @@ body {
 	-webkit-flex-flow: row wrap;
 	flex-flow: row wrap;
 	background-color: hsl(0, 0%, 81%);
+}
+
+#mobileExclusive {
+	display: none;
 }
 
 header {
@@ -70,18 +74,18 @@ main {
 	min-height: 486px;
 }
 
-main {
+main article {
 	font-size: 14px;
 	font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
 }
 
-main ul li {
+main article ul li {
 	display: list-item;
 	list-style-position: inside;
 	list-style-type: disc;
 }
 
-main ul {
+main article ul {
 	margin-left: 10px;
 }
 
@@ -124,7 +128,7 @@ div#social {
 /*Other Rules*/	
 
 
-main p, main li {
+main p, main article li {
 	padding-left: 3px;
 }
 
@@ -134,6 +138,18 @@ a:hover {
 
 /*Mobile exclusive rules for header and pulldown navigation*/
 @media only screen and (max-width: 480px) {
+	
+	#mobileExclusive {
+		display: block;
+	}
+	
+	html {
+		font-size: 14px;
+	}
+	
+	main article {
+		display: none;
+	}
 	header img {
 		width: 100%;
 	}
