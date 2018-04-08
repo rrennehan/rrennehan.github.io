@@ -80,7 +80,6 @@ main article {
 }
 
 main article ul li {
-	display: list-item;
 	list-style-position: inside;
 	list-style-type: disc;
 }
@@ -173,8 +172,8 @@ a:hover {
 	
 	nav ul li {
 		width: 100%;
-		font-size: 1.5rem;
-		line-height: 3rem;
+		font-size: 1.3rem;
+		line-height: 2.2rem;
 	}
 	
 	nav ul li:last-of-type {

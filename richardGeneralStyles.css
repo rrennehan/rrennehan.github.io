@@ -9,8 +9,6 @@ html {
 	font-size: 18px;
 	background: url(images\\richardBackground.png) center center / cover no-repeat fixed;
 	border: 1.5px solid black;
-	
-	
 }
 
 body {
@@ -51,7 +49,6 @@ nav ul li {
 	background-color: hsl(212, 77%, 66%);
 	font-size: 1.2rem;
 	line-height: 1.8rem;
-	display: table-cell;
 	vertical-align: middle;
 }
 
@@ -97,13 +94,13 @@ footer a {
 }
 
 div#social {
-		display: -webkit-flex;
-		display: flex;
-		-webkit-flex-flow: row wrap;
-		flex-flow: row wrap;
-		-webkit-align-content: center;
-		align-content: center;
-		justify-content: center;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-flow: row wrap;
+	flex-flow: row wrap;
+	-webkit-align-content: center;
+	align-content: center;
+	justify-content: center;
 }
 
 #social img:first-of-type {
@@ -143,13 +140,12 @@ a:hover {
 	nav {
 		background-color: hsl(212, 77%, 66%);
 	}
+	
 	#navicon {
 		display: block;
 		margin-left: auto;
 		margin-right: auto;
 		width: 10%;
-		
-		
 	}
 	
 	nav ul {
@@ -171,21 +167,5 @@ a:hover {
 	}
 }
 
-dl {	
-	border: 1px solid black;
-}
-
-.dlGroup {
-	
-}
-
-
-dt {
-	background-color: hsl(202, 100%, 81%);
-}
-
-dd {
-	background-color: white;
-}
 
 

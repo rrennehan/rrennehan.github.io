@@ -15,6 +15,11 @@ dd, dt {
 dt {
 	line-height: 1.3rem;
 	font-size: 1.1rem;
+	background-color: hsl(202, 100%, 81%);
+}
+
+dd {
+	background-color: white;
 }
 	
 @media only screen and (max-width: 480px) {
