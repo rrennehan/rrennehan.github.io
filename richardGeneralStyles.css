@@ -51,6 +51,8 @@ nav ul li {
 	background-color: hsl(212, 77%, 66%);
 	font-size: 1.2rem;
 	line-height: 1.8rem;
+	display: table-cell;
+	vertical-align: middle;
 }
 
 #currentPage {
