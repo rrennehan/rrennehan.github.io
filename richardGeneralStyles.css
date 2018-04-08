@@ -70,7 +70,7 @@ nav ul a:hover {
 /*Main content rules*/
 
 main {
-	min-height: 342px;
+	min-height: 466px;
 }
 
 
@@ -133,9 +133,7 @@ a:hover {
 /*Mobile exclusive rules for header and pulldown navigation*/
 @media only screen and (max-width: 480px) {
 	
-	html {
-		font-size: 22px;
-	}
+	
 	header img {
 		width: 100%;
 	}
@@ -171,10 +169,21 @@ a:hover {
 	}
 }
 
-/*Tablet and Desktop Styles */
-@media only screen and (min-width: 481px){
+dl {	
+	border: 1px solid black;
+}
+
+.dlGroup {
 	
 }
 
+
+dt {
+	background-color: hsl(202, 100%, 81%);
+}
+
+dd {
+	background-color: white;
+}
 
 
