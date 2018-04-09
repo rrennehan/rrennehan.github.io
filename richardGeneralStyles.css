@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
 /*	richardGeneralStyles.css
-	Contains rules used across all pages	*/
+	Contains rules used across all pages (except resume page)	*/
 
 html {
 	margin: 0 auto;
@@ -77,6 +77,7 @@ main {
 /*Footer Rules*/
 
 footer {
+	border-top: 2px solid black;
 	width: 100%;
 	font-size: 1.6rem;
 	text-align: center;
@@ -100,6 +101,7 @@ div#social {
 	flex-flow: row wrap;
 	-webkit-align-content: center;
 	align-content: center;
+	-webkit-justify-content: center;
 	justify-content: center;
 }
 

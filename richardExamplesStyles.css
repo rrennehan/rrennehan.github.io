@@ -1,11 +1,12 @@
 @charset "utf-8";
 
-/*	richardReset.css
+/*	richardExamplesStyles.css
 	Contains rules for work examples page	*/
 
 h1 {
 	border: 1px solid black;
 	text-align: center;
+	padding: 20px;
 }
 
 dd, dt {

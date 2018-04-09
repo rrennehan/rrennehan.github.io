@@ -89,6 +89,7 @@ main article ul {
 }
 
 footer {
+	border-top: 2px solid black;
 	width: 100%;
 	font-size: 2rem;
 	text-align: center;
