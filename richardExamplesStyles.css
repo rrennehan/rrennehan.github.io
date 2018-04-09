@@ -6,7 +6,7 @@
 h1 {
 	border: 1px solid black;
 	text-align: center;
-	padding: 20px;
+	padding: 0px 20px 0px 20px;
 }
 
 dd, dt {
