@@ -164,7 +164,7 @@ a:hover {
 		margin-bottom: 10px;
 	}
 	
-	#navicon:hover + ul, ul:hover {
+	#navicon:hover + ul, nav ul:hover {
 		display: block;
 	}
 }
