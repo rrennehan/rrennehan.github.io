@@ -4,7 +4,10 @@
 	Contains rules exclusively for goals page	*/
 
 main {
-	background-color: hsl(168, 66%, 27%);
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-flow: row wrap;
+	flex-flow: row wrap;
 }
 	
 main h1 {
@@ -18,13 +21,6 @@ main h1 {
 	font-size: 1.4rem;
 	border-top: 2px solid black;
 	border-bottom: 2px solid black;
-}
-
-main {
-	display: -webkit-flex;
-	display: flex;
-	-webkit-flex-flow: row wrap;
-	flex-flow: row wrap;
 }
 
 main ul {
