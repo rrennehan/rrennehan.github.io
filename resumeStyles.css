@@ -1,0 +1,43 @@
+@charset "UTF-8";
+
+/*	richardResumeStyles.css
+	Rules used exclusively for resume page*/
+
+main {
+	min-height: 486px;
+}
+
+main article {
+	font-size: 14px;
+	font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+}
+
+main article ul li {
+	display: list-item;
+	list-style-position: inside;
+	list-style-type: disc;
+}
+
+main article ul {
+	margin-left: 10px;
+}
+
+main article li {
+	padding-left: 3px;
+}
+
+p::after {
+	display: none;
+	content: "";
+}
+
+/*Hide the main resume on mobile due to issues containing it within the site body*/
+@media only screen and (max-width: 480px) {
+	article {
+		display: none;
+	}
+}
+
+
+
+
