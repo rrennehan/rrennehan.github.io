@@ -39,6 +39,11 @@ header {
 	display: none;
 }
 
+/*Highlights tab in unique color if it's the one the user is at*/
+#currentPage {
+	background-color: hsl(218, 96%, 57%);
+}
+
 nav ul {
 	display: -webkit-flex;
 	display: flex;
@@ -53,17 +58,13 @@ nav ul li {
 	background-color: hsl(212, 77%, 66%);
 	font-size: 1.2rem;
 	line-height: 1.8rem;
-	vertical-align: middle;
-}
-
-#currentPage {
-	background-color: hsl(218, 96%, 57%);
+	display: table;
 }
 
 nav ul li a {
-	display: block;
-	width: 100%;
-	height: 100%;
+	display: table-cell; /*Used to allow vertically aligned text*/
+	border: 1px;
+	vertical-align: middle;
 }
 
 nav ul a:hover {
@@ -71,10 +72,14 @@ nav ul a:hover {
 	text-decoration: none;
 }
 
-/*Main content rules*/
-
-main {
-	min-height: 466px;
+/*Ensures that table cells still line up parallel
+due to the work samples text dropping to two lines at width 794px. 
+Keeps the tabs heights the normal amount when not needed*/
+@media only screen and (min-width: 480px) and (max-width: 794px) {
+	nav ul li {
+		min-height: 66px;
+	}
+	
 }
 
 
@@ -138,6 +143,10 @@ article h1, article h2, article h3 {
 
 a:hover {
 	text-decoration: underline;
+}
+
+a:active {
+	color: blue;
 }
 
 /*Mobile exclusive rules for header and pulldown navigation*/
