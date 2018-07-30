@@ -6,6 +6,7 @@
 html {
 	margin: 0 auto;
 	max-width: 960px;
+	height: 100%;
 	font-size: 18px;
 	background: url(images\\background.png) center center / cover no-repeat fixed;
 	border: 1.5px solid black;
@@ -13,6 +14,7 @@ html {
 
 body {
 	width: 100%;
+	min-height: 100%;
 	display: -webkit-flex;
 	display: flex;
 	-webkit-flex-flow: row wrap;
