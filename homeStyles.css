@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
-/*	richardHomeStyles.css
-	Contains rules exclusively for home page	*/
+/*	homeStyles.css
+	Contains rules exclusively for index page	*/
 
 /*Mobile Styles*/
 @media only screen and (max-width: 480px) {

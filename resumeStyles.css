@@ -1,10 +1,11 @@
 @charset "UTF-8";
 
-/*	richardResumeStyles.css
+/*	esumeStyles.css
 	Rules used exclusively for resume page*/
 
 main {
 	min-height: 486px;
+	width: 60%;
 }
 
 main article {

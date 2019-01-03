@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-/*	richardGeneralStyles.css
+/*	generalStyles.css
 	Contains rules used across all pages*/
 
 html {
@@ -60,6 +60,7 @@ nav ul {
 nav ul li {
 	width: 16.6666666667%;
 	width: calc(100% /6);
+	min-height: 66px;
 	border: 1px solid black;
 	background-color: hsl(212, 77%, 66%);
 	font-size: 1.2rem;
@@ -75,16 +76,6 @@ nav ul li a {
 nav ul a:hover {
 	background-color: white;
 	text-decoration: none;
-}
-
-/*Ensures that table cells still line up parallel
-due to the work samples text dropping to two lines at width 794px. 
-Keeps the tabs heights the normal amount when not needed*/
-@media only screen and (min-width: 480px) and (max-width: 794px) {
-	nav ul li {
-		min-height: 66px;
-	}
-	
 }
 
 /*Main content rules*/
@@ -143,7 +134,7 @@ p::after {
 	white-space: pre;
 }
 
-article p {
+p {
 	padding: 0px 2px 0px 2px;
 }
 
