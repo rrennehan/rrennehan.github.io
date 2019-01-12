@@ -22,6 +22,11 @@ dt {
 dd {
 	background-color: white;
 }
+
+dl img {
+		max-width: 80%;
+		padding-bottom: 3px;
+}
 	
 /*Mobile Styles*/
 @media only screen and (max-width: 480px) {
