@@ -5,7 +5,7 @@
 
 main {
 	min-height: 486px;
-	width: 60%;
+	width: 100%;
 }
 
 main article {
@@ -29,18 +29,19 @@ main article li {
 	padding-left: 3px;
 }
 
+main article img {
+	max-width: 100%;
+}
+
+main aside {
+	border-top: 2px solid black;
+	font-size: 1.3rem;
+	text-align: center;
+]
+
 p::after {
 	display: none;
 	content: "";
 }
-
-/*Hide the main resume on mobile due to issues containing it within the site body*/
-@media only screen and (max-width: 480px) {
-	article {
-		display: none;
-	}
-}
-
-
 
 

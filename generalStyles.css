@@ -10,7 +10,7 @@ html {
 	font-size: 18px;
 	background: url(images\\background.png) center center / cover no-repeat fixed;
 	overflow-y: scroll;
-	overflow-y: overlay;
+	-webkit-overflow-scrolling: touch;
 }
 
 body {
@@ -153,10 +153,6 @@ a:active {
 /*Mobile exclusive rules for header and pulldown navigation*/
 @media only screen and (max-width: 480px) {
 	
-	html {
-		overflow-y: hidden;
-	}
-
 	body {
 		width: 100%;
 	}
