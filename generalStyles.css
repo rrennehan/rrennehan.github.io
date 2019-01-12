@@ -9,8 +9,8 @@ html {
 	height: 100%;
 	font-size: 18px;
 	background: url(images\\background.png) center center / cover no-repeat fixed;
-	overflow-y: scroll;
 	-webkit-overflow-scrolling: touch;
+	overflow-y: scroll;
 }
 
 body {
@@ -58,7 +58,7 @@ nav ul {
 }
 
 nav ul li {
-	width: 16.6666666667%;
+	max-width: 16.6666666667%;
 	width: calc(100% /6);
 	min-height: 66px;
 	border: 1px solid black;
