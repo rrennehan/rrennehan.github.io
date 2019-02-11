@@ -1,0 +1,61 @@
+<html>
+    <head><title>Poker</title></head>
+    <style>
+    html {
+        max-height: 100%;
+        font-family: arial, sans-serif;
+    }
+    
+    body{
+        background-color: green;
+    }
+
+    img
+    {
+        height:30%; 
+        margin-top: 10px;
+    }
+    span
+    {
+        color: white;
+        font-size:20pt;
+        margin-left: 30px;
+    }
+
+    #drawCount
+    {
+        color: white;
+        font-size: 1.6rem;
+    }
+    </style>
+    <body>
+        <button id="reset">New Hand</button>
+        <button id="loop">Loop</button>
+        <div id="player_one">
+            <img id="player_one_card_one">
+            <img id="player_one_card_two">
+            <img id="player_one_card_three">
+            <img id="player_one_card_four">
+            <img id="player_one_card_five">
+            <span id="player_one_score">1</span>
+        </div>
+
+        <div id="player_two">
+            <img id="player_two_card_one">
+            <img id="player_two_card_two">
+            <img id="player_two_card_three">
+            <img id="player_two_card_four">
+            <img id="player_two_card_five">
+            <span id="player_two_score">2</span>
+        </div>
+
+        <button id="statsButton">Stats</button>
+        <div id="drawCount">
+            Total Draws: 0
+        </div>
+
+        <div id="stats"></div>
+    
+        <script src="poker.js" defer async></script>
+    </body>
+</html>
