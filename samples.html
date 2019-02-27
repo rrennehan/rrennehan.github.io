@@ -74,9 +74,13 @@
 							to battle against a monster where a winner is determined. The user 
 							can upgrade stats, buy items, and advance to defeat increasingly 
 							difficult monsters up to level 3.<br />
-							<a href="downloads\prog\richardRPGGameContents.zip" download>(Alternatively click here to see the java files)</a>
+							<a href="downloads\prog\richardRPGGameContents.zip" download>(Alternatively click here to see the java files)</a></br></br>
 							<img src="images\gameMenu.PNG" alt="">
-							
+							<div class="experience">
+								This was my first object-oriented project, so learning how to work with 
+								classes took time. I was having trouble imagining how the program would work. Once I learned 
+								it can be as simple as setting up a main class and making calls to other classes, it clicked for me. 
+							</div></br>
 							</dd>
 						</div>
 						<div class="dlGroup">
@@ -87,7 +91,14 @@
 							The program stores the details in an external txt file
 							using file input and output methods.
 							<br />
-							<a href="downloads\prog\richardAnimalRecorderContents.zip" download>(Alternatively click here to see the java files)</a></dd>
+							<a href="downloads\prog\richardAnimalRecorderContents.zip" download>(Alternatively click here to see the java files)</a></br>
+							<div class="experience">
+								For this project, I used Scanner and FileWriter. At one point, I had no idea why 
+								changes were not being saved, until I learned I needed to close the Scanner and 
+								FileWriter. Now that I'm studying Android development, I have switched to BufferedReader, 
+								FileInputStream, and FileOutputStream.
+							</div></br>
+							</dd>
 						</div>
 						<div class="dlGroup">
 							<dt><a href="downloads\prog\richardScreensaverRunnable.jar" download>Bouncing Shapes Screensaver (.jar file)</a></dt>
@@ -97,7 +108,15 @@
 							java.awt graphics, and a timer to update the screensaver 60
 							times per second.<br />
 							<a href="downloads\prog\richardScreensaverContents.zip" download>(Alternatively click here to see the java files)</a>
-							<img src="images\screensaver.PNG" alt=""/dd>
+							<img src="images\screensaver.PNG" alt="">
+							<div class="experience">
+								After my RPG game, I was curious how I could make 
+								an application with moving objects. Funny enough, I was granted the opportunity 
+								when this was assigned as my final project. I discovered you can use a timer 
+								combined with java graphics libraries to move objects bit by bit. I particularly 
+								liked using the debugger to check for object collision frame by frame.
+							</div></br>
+							</dd>
 						</div>
 						<div class="dlGroup">
 							<dt><a href="downloads\prog\countriesApplication.zip" download>Countries of the World (.zip folder)</a></dt>
@@ -107,7 +126,14 @@
 							along with more information. To run it, download the zip 
 							folder, extract it to a new location, and run the "Countries of the World.exe" 
 							file from the new location. The python code is also provided.
-							<img src="images\countriesMenu.PNG" alt=""></dd>
+							<img src="images\countriesMenu.PNG" alt="">
+							<div class="experience">
+								A particular challenge was getting the correct flag to show up. This was solved 
+								by making the filenames for the flags the same as the country names in the list. Then, I 
+								could grab the name of the list item, concatenate an image extension, and then search the 
+								directory for the corresponding flag image.
+							</div></br>
+						</dd>
 						</div>
 						<div class="dlGroup">
 							<dt><a href="downloads\prog\richardBlackJackGame.zip" download>BlackJack Game (.zip folder)</a></dt>
@@ -131,23 +157,43 @@
 							location. The python file is also included so you
 							can view the code. Comes with a 
 							functioning leaderboard.
-							<img src="images\blackjack.PNG" alt=""></dd>
+							<img src="images\blackjack.PNG" alt="">
+							<div class="experience">
+								I learned a lot about program logic. My favorite accomplishment 
+								was coding the leaderboard. Ensuring the leaderboard sorts scores 
+								correctly while maintaining proper formatting took research as well as a 
+								little trial and error.
+							</div></br>
+						</dd>
 						</div>
 						<div class="dlGroup">
 							<dt><a href="downloads\prog\richardCalculator.apk" download>Android Calculator (.apk folder)</a></dt>
-							<dd>My very first Android application. Works as a rolling-calculator with 
-								no order of operations (BEDMAS) applied. I've worked hard to ensure the 
-								app feels clean and responsive, and does not crash.
-							<img src="images\mobileCalculator.PNG" alt=""></dd>
+							<dd>A simple, clean, arithmetic calculator for Android devices. Works as a 
+							rolling-calculator with no order of operations applied (as requested by professor).
+							<img src="images\mobileCalculator.PNG" alt="">
+							<div class="experience">
+								This is my first full Android application. Fortunately, I had lots of practice 
+								with setting up interfaces before this assignment. My vision was to replicate how 
+								the official calculator works on apple devices, but using a fresh coat of paint. 
+								This took more logic than expected. I would improve this by adding more functions to 
+								eliminate duplicated code.	
+							</div></br>
+							</dd>
+							
 						</div>
 						<div class="dlGroup">
 							<dt><a href="poker.html" target="_blank">Poker API Site</a></dt>
-							<dd>Learning how to use fetch with JavaScript. This site uses a 
-								card dealing API to give two 5 card hands. I coded 
+							<dd>This site uses a card dealing API to give two 5 card hands. I coded 
 								a scoring system in JavaScript to determine the rank/score of 
 								each hand and determine the winner. You can also view stats to 
 								see how often each hand rank showed up.
-							<img src="images\poker.PNG" alt=""></dd>
+							<img src="images\poker.PNG" alt="">
+							<div class="experience"> 
+								This assignment reminded me that it's important to break the workload down to 
+								pieces. My original draft of this would only score the highest card in each hand. 
+								I continued to add scoring features piece by piece.
+							</div></br>
+							</dd>
 						</div>
 					</dl>
 				</section>
@@ -230,7 +276,7 @@
 							<dd>An assignment which analyzed a loan default dataset 
 							on 10000 people. Using their balance, income, and whether
 							each person was a student as factors, I created a model to predict
-							the chances of each person defaulting on their loan and compared
+							the chances of each person defaulting on their loan. I then compared
 							it to each person actually defaulting or not.<dd>
 						</div>
 					</dl>

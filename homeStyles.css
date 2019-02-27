@@ -13,11 +13,12 @@
 		display: block;
 		text-align: center;
 		font-size: 1.5rem;
-		background-color: hsl(184, 67%, 75%);
+		background-color: white;
 	}
 	
 	aside img {
 		margin-bottom: 10px;
+		max-width: 70%;
 	}
 }
 
@@ -26,8 +27,8 @@
 	main {
 		display: -webkit-flex;
 		display: flex;
-		-webkit-flex-flow: row wrap;
-		flex-flow: row wrap;
+		-webkit-flex-flow: row nowrap;
+		flex-flow: row nowrap;
 		-webkit-justify-content: center;
 		justify-content: center;
 		-webkit-align-items: center;
@@ -53,6 +54,9 @@
 
 	main aside img {
 		margin: 10px;
+		max-width: 70%;
+		margin-left: auto;
+		margin-right: auto;
 	}
 	
 	
