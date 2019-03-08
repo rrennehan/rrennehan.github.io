@@ -1,0 +1,63 @@
+@charset "UTF-8";
+
+/*	homeStyles.css
+	Contains rules exclusively for index page	*/
+
+/*Mobile Styles*/
+@media only screen and (max-width: 480px) {
+	article {
+		font-size: 1.2rem;
+	}
+	
+	article h1 {
+		display: block;
+		text-align: center;
+		font-size: 1.5rem;
+		background-color: white;
+	}
+	
+	aside img {
+		margin-bottom: 10px;
+		max-width: 70%;
+	}
+}
+
+/*Tablet and Desktop Styles*/
+@media only screen and (min-width: 481px){
+	main {
+		display: -webkit-flex;
+		display: flex;
+		-webkit-flex-flow: row nowrap;
+		flex-flow: row nowrap;
+		-webkit-justify-content: center;
+		justify-content: center;
+		-webkit-align-items: center;
+		align-items: center;
+		min-height: 100px;
+	}
+	
+
+	article {
+		margin: 15px;
+		max-width: 50%;
+		background-color: white;
+		font-size: 1.4rem;
+		border: 1px solid black;
+	}
+
+	article h1 {
+		text-align: center;
+		font-size: 2rem;
+		display: block;
+		background-color: gray;
+	}
+
+	main aside img {
+		margin: 15px;
+		max-width: 70%;
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
+
+

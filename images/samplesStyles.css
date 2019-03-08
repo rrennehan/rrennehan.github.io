@@ -1,0 +1,99 @@
+@charset "utf-8";
+
+/*	samplesStyles.css
+	Contains rules for work examples page	*/
+
+h1 {
+	border: 1px solid black;
+	text-align: center;
+	font-size: 1.2rem;
+}
+
+dd, dt {
+	padding: 0px 2px 0px 2px;
+}
+
+dt {
+	line-height: 1.3rem;
+	font-size: 1.1rem;
+	background-color: hsl(202, 100%, 81%);
+}
+
+dd {
+	background-color: white;
+}
+
+dl img {
+	max-width: 80%;
+}
+
+.experience {
+	max-width: 80%;
+	background-color: gray;
+	padding: 5px;
+	font-style: italic;
+}
+	
+/*Mobile Styles*/
+@media only screen and (max-width: 480px) {
+	aside {
+		display: none;
+	}
+	
+	dt, h1 {
+		line-height: 1.5rem;
+	}
+	
+	.mobileExclusive {
+		background-color: white;
+	}
+}
+	
+/*Tablet and Desktop Styles */
+@media only screen and (min-width: 481px){
+	
+	.mobileExclusive {
+		display: none;
+	}
+	
+	main {
+		display: table;
+	}
+	
+	h1 {
+		width: 35%;
+		background-color: hsl(192, 57%, 33%);
+	}
+	
+	article {
+		width: 100%;
+	}
+	
+	article section {
+		display: table-row;
+		width: 100%;
+	}
+	
+	.dlGroup {
+		width: 100%;
+	}
+	
+	dl {
+		width: 100%;
+	}
+	
+	dt, dd {
+		border-bottom: 1px solid black;
+		width: 100%;
+	}
+	
+	article h1 {
+		display: table-cell;
+	}
+
+	aside {
+		width: 40%;
+		display: table-cell;
+	}
+	
+}

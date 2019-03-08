@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+
+<!--
+	Richard's Work Examples Page
+	samples.html
+	
+	Additional documents and work samples that I'm proud of
+-->
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>Richard's E-Portfolio</title>
+		<meta name="keywords" content="Richard, Rennehan, NSCC, e-portfolio, work, skills, data, analytics, analysis, business, IT, technology, information" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link href="reset.css" rel="stylesheet" />
+		<link href="generalStyles.css" rel="stylesheet" />
+		<link href="samplesStyles.css" rel="stylesheet" />
+		<link rel="apple-touch-icon" sizes="180x180" href="images/favicon2/apple-touch-icon.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="images/favicon2/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="images/favicon2/favicon-16x16.png">
+		<link rel="manifest" href="images/favicon2/site.webmanifest">
+		<link rel="mask-icon" href="images/favicon2/safari-pinned-tab.svg" color="#5bbad5">
+		<link rel="shortcut icon" href="images/favicon2/favicon.ico">
+		<meta name="msapplication-TileColor" content="#da532c">
+		<meta name="msapplication-config" content="images/favicon2/browserconfig.xml">
+		<meta name="theme-color" content="#ffffff">
+	</head>
+	
+	<body>
+	
+		<header>
+			<img id="top" src="images\logo.jpg" alt="Richard's E-Portfolio" />
+			<nav>
+				<img id="navicon" src="images\navicon.png" alt="" />
+				<ul>
+					<li><a href="index.html">Home</a></li>
+					<!--- -><li><a href="aboutMe.html">About Me</a></li>-->
+					<li><a href="goals.html">Goals</a></li>
+					<li><a href="skills.html">Skills</a></li>
+					<li><a href="resume.html">Resume</a></li>
+					<li id="currentPage"><a href="samples.html">Work Samples</a></li>
+					<li><a href="contact.html">Contact</a></li>
+				</ul>
+			</nav>
+		</header>
+		<main>
+			<article>
+				<div class="mobileExclusive">
+					<p>Please be aware that these downloads may not display properly
+					or work at all on mobile devices</p>
+				</div>
+				<section>
+					<h1>Programming Assignments</h1>
+					<dl>
+						<h2>Note: An up-to-date version of Java is required to run the jar files.</h2>
+						<div class="dlGroup">
+							<dt><a href="downloads\prog\richardRPGGameRunnable.jar" download>Object Oriented RPG Game (.jar file)</a></dt>
+							<dd>This Java project tasked me with using object orientated concepts such as 
+							abstraction, polymorphism, inheritance, and encapsulation to make 
+							a battle game. The user chooses one of three unique heroes 
+							to battle against a monster where a winner is determined. The user 
+							can upgrade stats, buy items, and advance to defeat increasingly 
+							difficult monsters up to level 3.<br />
+							<a href="downloads\prog\richardRPGGameContents.zip" download>(Alternatively click here to see the java files)</a></br></br>
+							<img src="images\gameMenu.PNG" alt="">
+							<div class="experience">
+								This was my first object-oriented project, so learning how to work with 
+								classes took time. I was having trouble imagining how the program would work. Once I learned 
+								it can be as simple as setting up a main class and making calls to other classes, it clicked for me. 
+							</div></br>
+							</dd>
+						</div>
+						<div class="dlGroup">
+							<dt><a href="downloads\prog\richardAnimalRecorderRunnable.jar" download>Animal Recorder (.jar file)</a></dt>
+							<dd>An application that would allow researchers to 
+							record details for penguins, sea lions, and 
+							walruses, such as their sex, weight, and GPS coordinates.
+							The program stores the details in an external txt file
+							using file input and output methods.
+							<br />
+							<a href="downloads\prog\richardAnimalRecorderContents.zip" download>(Alternatively click here to see the java files)</a></br>
+							<div class="experience">
+								For this project, I used Scanner and FileWriter. At one point, I had no idea why 
+								changes were not being saved, until I learned I needed to close the Scanner and 
+								FileWriter. Now that I'm studying Android development, I have switched to BufferedReader, 
+								FileInputStream, and FileOutputStream.
+							</div></br>
+							</dd>
+						</div>
+						<div class="dlGroup">
+							<dt><a href="downloads\prog\richardScreensaverRunnable.jar" download>Bouncing Shapes Screensaver (.jar file)</a></dt>
+							<dd>A screensaver-like application in Java. By clicking inside,
+							a shape is generated. Shapes bounce off the walls and
+							off each other. Makes successful use of late-binding, 
+							java.awt graphics, and a timer to update the screensaver 60
+							times per second.<br />
+							<a href="downloads\prog\richardScreensaverContents.zip" download>(Alternatively click here to see the java files)</a>
+							<img src="images\screensaver.PNG" alt="">
+							<div class="experience">
+								After my RPG game, I was curious how I could make 
+								an application with moving objects. Funny enough, I was granted the opportunity 
+								when this was assigned as my final project. I discovered you can use a timer 
+								combined with java graphics libraries to move objects bit by bit. I particularly 
+								liked using the debugger to check for object collision frame by frame.
+							</div></br>
+							</dd>
+						</div>
+						<div class="dlGroup">
+							<dt><a href="downloads\prog\countriesApplication.zip" download>Countries of the World (.zip folder)</a></dt>
+							<dd>A graphical application made using PyQT5 designer. The 
+							user is presented with a list of all countries. When
+							the user clicks on a country, its flag is displayed 
+							along with more information. To run it, download the zip 
+							folder, extract it to a new location, and run the "Countries of the World.exe" 
+							file from the new location. The python code is also provided.
+							<img src="images\countriesMenu.PNG" alt="">
+							<div class="experience">
+								A particular challenge was getting the correct flag to show up. This was solved 
+								by making the filenames for the flags the same as the country names in the list. Then, I 
+								could grab the name of the list item, concatenate an image extension, and then search the 
+								directory for the corresponding flag image.
+							</div></br>
+						</dd>
+						</div>
+						<div class="dlGroup">
+							<dt><a href="downloads\prog\richardBlackJackGame.zip" download>BlackJack Game (.zip folder)</a></dt>
+							<dd><p>A personal project I did using Python. I wanted to put all the 
+							introductory programming skills I learned in my 
+							introduction to programming course to the test.</p>
+							
+							<p>This project is a functional blackjack game that works
+							in command line. The user starts with 1000 chips and can bet
+							any amount under their balance each round. Each round, the 
+							user draws random cards from the deck and tries to stay under
+							a total of 21. If they go over 21, they lose the bet. The user
+							can choose to stop at any time. Upon stopping, the dealer gets
+							its turn, also drawing cards randomly. The program checks to see
+							whether the dealer or the player won, and takes or gives chips as
+							needed.</p>
+							
+							To play it, simply download the zip 
+							folder above, extract all the files to a new location, and 
+							load the Blackjack.exe application from the new
+							location. The python file is also included so you
+							can view the code. Comes with a 
+							functioning leaderboard.
+							<img src="images\blackjack.PNG" alt="">
+							<div class="experience">
+								I learned a lot about program logic. My favorite accomplishment 
+								was coding the leaderboard. Ensuring the leaderboard sorts scores 
+								correctly while maintaining proper formatting took research as well as a 
+								little trial and error.
+							</div></br>
+						</dd>
+						</div>
+						<div class="dlGroup">
+							<dt><a href="downloads\prog\richardCalculator.apk" download>Android Calculator (.apk folder)</a></dt>
+							<dd>A simple, clean, arithmetic calculator for Android devices. Works as a 
+							rolling-calculator with no order of operations applied (as requested by professor).
+							<img src="images\mobileCalculator.PNG" alt="">
+							<div class="experience">
+								This is my first full Android application. Fortunately, I had lots of practice 
+								with setting up interfaces before this assignment. My vision was to replicate how 
+								the official calculator works on apple devices, but using a fresh coat of paint. 
+								This took more logic than expected. I would improve this by adding more functions to 
+								eliminate duplicated code.	
+							</div></br>
+							</dd>
+							
+						</div>
+						<div class="dlGroup">
+							<dt><a href="poker.html" target="_blank">Poker API Site</a></dt>
+							<dd>This site uses a card dealing API to give two 5 card hands. I coded 
+								a scoring system in JavaScript to determine the rank/score of 
+								each hand and determine the winner. You can also view stats to 
+								see how often each hand rank showed up.
+							<img src="images\poker.PNG" alt="">
+							<div class="experience"> 
+								This assignment reminded me that it's important to break the workload down to 
+								pieces. My original draft of this would only score the highest card in each hand. 
+								I continued to add scoring features piece by piece.
+							</div></br>
+							</dd>
+						</div>
+					</dl>
+				</section>
+				<section>
+					<h1>Database and SQL Assignments</h1>
+					<dl>
+						<div class="dlGroup">
+							<dt><a href="downloads\database\UKRoadAccidents2016Report.pptx" download>UK Road Accidents 2016 Report (.pptx file)</a></dt>
+							<dd>Borrows road accident data from the official <a href="https://data.gov.uk/dataset/cb7ae6f0-4be6-4935-9277-47e5ce24a11f/road-safety-data">data.gov.uk</a> website. After
+							plugging the data into SQL Server and Excel, I've compiled a presentation explaining a few of the largest causes of 
+							road accidents in the UK and how to reduce them.</dd>
+						</div>			
+						<div class="dlGroup">
+							<dt><a href="downloads\database\sqlTinyCollegeReport.docx" download>Oracle SQL Guide (.docx file)</a></dt>
+							<dd>An assignment where a fictional company, called Tiny
+							College, needed the code to create a database in Oracle
+							SQL Developer. This report contains the code that 
+							is used to create the tables, insert data into them, and
+							to create reports.</dd>
+						</div>
+						<div class="dlGroup">
+							<dt><a href="downloads\database\storeDatabaseExample.accdb" download>Microsoft Access Store Database Example (.accdb file)</a></dt>
+							<dd>A basic store database I created in Microsoft Access.
+							Contains the code to create tables. Also contains forms
+							allowing for easy data entry. You must have Microsoft Access
+							installed to view. This was one of my very first
+							assignments involving SQL.</dd>
+						</div>
+						<div class="dlGroup">
+							<dt><a href="downloads\database\introPLSQLAssignment.docx" download>Introductory PL/SQL Assignment (.docx file)</a></dt>
+							<dd>This document contains my solutions to ten textbook exercises on PL/SQL 
+							and explains each solution. You may enjoy reading this to see how I managed 
+							each problem.</dd>
+						</div>
+						<div class="dlGroup">
+							<dt><a href="downloads\database\PLSQLProcTrigFunc.docx" download>Advanced PL/SQL Assignment (.docx file)</a></dt>
+							<dd>This was the final assignment of my data movement and integration course. 
+							Our professor gave us the database for clearwater traders and tasked us to set 
+							an system that updates quantity on hand when a shipment arrives. We were required 
+							to use procedures, functions, and triggers so the entire process could be done 
+							with one procedure call. It was fun figuring it out!</dd>
+						</div>
+						<div class="dlGroup">
+							<dt><a href="downloads\database\bikeMSReport.docx" download> Teradata and Bike MS Report (.docx file)</a></dt>
+							<dd>This was an ongoing assignment influenced by Teradata's 2018 data challenge. 
+							Using my knowledge of business and data so far, I seeked to understand Bike MS's 
+							business model and their goals to determine how to best assist them.</dd>
+						</div>	
+					</dl>
+				</section>
+				<section>
+					<h1>Statistical Learning Assignments</h1>
+					<dl>
+						<div class="dlGroup">
+							<dt><a href="downloads\stats\statsPredictingCatHeartWeights.docx" download> Predicting Cat Heart Weights (.docx file)</a></dt>
+							<dd>A professional research report. I used a dataset on cat
+							heart weights, body weights, and their sexes and plugged
+							it into RStudio. Then, I created a linear model to predict
+							a cat's heart weight using body weight and sex.</dd>
+						</div>
+						<div class="dlGroup">
+							<dt><a href="downloads\stats\statsMultipleRegression.docx" download> Multiple Regression Assignment (.docx file)</a></dt>
+							<dd>Class assignment which covered the dangers of overfitting
+							the data. To avoid overfitting, multiple regression techniques were
+							used to remove variables that had little influence on the data.</dd>
+						</div>
+						<div class="dlGroup">
+							<dt><a href="downloads\stats\statsSubsetSelection.docx" download> Subset Selection Assignment (.docx file)</a></dt>
+							<dd>Using best subset regression, forward stepwise regression, and 
+							backward stepwise regression to determine which sized model is best.</dd>
+						</div>
+						<div class="dlGroup">
+							<dt><a href="downloads\stats\statsCrossValidation.docx" download> Cross Validation Assignment (.docx file)</a></dt>
+							<dd>Applying cross validation methods to a 
+							baseball dataset to determine the biggest factors of
+							a player's salary.</dd>
+						</div>
+						<div class="dlGroup">
+							<dt><a href="downloads\stats\statsLogisticRegression.docx" download>Logistic Regression Assignment (.docx file)</a></dt>
+							<dd>An assignment which analyzed a loan default dataset 
+							on 10000 people. Using their balance, income, and whether
+							each person was a student as factors, I created a model to predict
+							the chances of each person defaulting on their loan. I then compared
+							it to each person actually defaulting or not.<dd>
+						</div>
+					</dl>
+				</section>
+				<section>
+					<h1>Business Analysis Essentials Assignments</h1>
+					<dl>
+						<div class="dlGroup">
+							<dt><a href="downloads\business\BRD.docx" download>Business Requirements Document (.docx file)</a></dt>
+							<dd>A large group project. We looked at a past business 
+							case involving the merger of Nationwide and Allied,
+							placed ourselves back in time, and made a business
+							requirements document for the merger project.</dd>
+						</div>
+						<div class="dlGroup">
+							<dt><a href="downloads\business\stakeholderAnalysis.docx" download>Stakeholder Analysis (.docx file)</a></dt>
+							<dd>An assignment where each student was tasked as the head
+							of a new project. Using what was known about the project, each 
+							student developed stakeholder charts to prioritize stakeholders 
+							and identify communication strategies.</dd>
+						</div>
+						<div class="dlGroup">
+							<dt><a href="downloads\business\dataQualityReport.docx" download>Causes and Consequences of Data Quality Problems (.docx file)</a></dt>
+							<dd>A report explaining the biggest causes behind data
+							quality problems, as well as my ideas to reduce data issues.</dd>
+						</div>
+						<div class="dlGroup">
+							<dt><a href="downloads\business\understandingBusinessAnalysis.docx" download>Understanding Business Analysis (.docx file)</a></dt>
+							<dd>A research report that answers a few questions around areas of
+							business intelligence and the software development life cycle.</dd>
+						</div>
+						<div class="dlGroup">
+							<dt><a href="downloads\business\financialManagerReport.docx" download>How Businesses Manage Money (.docx file)</a></dt>
+							<dd>A brief research report on how businesses manage money,
+							including information on the jobs of financial managers.</dd>
+						</div>
+						<div class="dlGroup">
+							<dt><a href="downloads\business\businessProcessesAndDiagrams.docx" download>Business Processes and Diagrams (.docx file)</a></dt>
+							<dd>A research assignment on business processes and
+							the different kinds of diagrams used for different 
+							levels of processes.</dd>
+						</div>
+						<div class="dlGroup">
+							<dt><a href="downloads\business\businessEnvironmentsReport.docx" download>The Three Environments of Business (.docx file)</a></dt>
+							<dd>Looks at the three main environments that affect 
+							business operations, and why businesses need
+							to acknowledge them.</dd>
+						</div>
+						<div class="dlGroup">
+							<dt><a href="downloads\business\businessPortfolioPersonality.docx" download>Business Personality Portfolio (.docx file)</a></dt>
+							<dd>A special assignment. Takes a look at 5 selected personality 
+							traits that are great for business and where I fit in. Includes 
+							my ideal manager and my 'psychological' 
+							contract. When my teacher graded this, 
+							she loved it and desired to share it with
+							other faculty.</dd>
+						</div>
+					</dl>
+				</section>
+				<section>
+					<h1>Hardware and Operating Systems Assignments</h1>
+					<dl>
+						<div class="dlGroup">
+							<dt><a href="downloads\hardware\computerPartsReport.docx" download>Computer Parts Report (.docx file)</a></dt>
+							<dd>A introduction to computer parts and how
+							they interact, written in a beginner friendly 
+							style.</dd>
+						</div>
+						<div class="dlGroup">
+							<dt><a href="downloads\hardware\dataStorageReport.docx" download>Data Storage Report (.docx file)</a></dt>
+							<dd>Explains the many different ways data is stored
+							and how each compare. Continues the beginner friendly
+							style writing trend.</dd>
+						</div>
+						<div class="dlGroup">
+							<dt><a href="downloads\hardware\computerBootAndTroubleshoot.zip" download>Computer Bootup and Troubleshoot Report (.zip file)</a></dt>
+							<dd>A group project. We were tasked to write
+							a report on computer boot up and troubleshooting, 
+							take apart a dell computer and keep a log, as well
+							as write a troubleshooting guide for Dell Optiplex
+							computers.</dd>
+						</div>
+					</dl>
+				</section>
+				<section>
+					<h1>Linux and Server Operating Systems Assignments</h1>
+					<dl>
+						<div class="dlGroup">
+							<dt><a href="downloads\linux\UbuntuLAMPReport.docx" download>Guide to Installing Ubuntu VM with LAMP Services (.docx file)</a></dt>
+							<dd>A document that guides users how to install a
+							Linux Ubuntu Virtual Machine with VMWare and configure
+							the virtual machine to run server processes. This assignment
+							really tested my documentation skills, as I aimed to make it
+							understandable by even non-technical users.</dd>
+						</div>
+						<div class="dlGroup">
+							<dt><a href="downloads\linux\linuxScripts.zip" download>Intro to Linux Scripting (.zip file)</a></dt>
+							<dd>This assignment tested students' ability to understand Linux 
+							scripting. We were tasked with using a menu box template and adding 
+							on to it. The zip folder contains the documentation and the script files.</dd>
+						</div>
+						<div class="dlGroup">
+							<dt><a href="downloads\linux\settingUpPrintServer.docx" download>Set up of Remote Print Server (.docx file)</a></dt>
+							<dd>A document that displays steps I took to set up a remote CentOS print 
+							server and connect it to a pre-existing Ubuntu Server.</dd>
+						</div>
+						<div class="dlGroup">
+							<dt><a href="downloads\linux\settingUpServerBackups.docx" download>Storing off-site server backups (.docx file)</a></dt>
+							<dd>A follow up assignment to the set up of the remote print server. 
+							The document displays the steps I took to store a backup of the Ubuntu 
+							server onto the CentOS server.</dd>
+						</div>
+					</dl>
+				</section>
+				<section>
+					<h1>Ethics and Law in Data Analytics Assignments</h1>
+					<dl>
+						<div class="dlGroup">
+							<dt><a href="downloads\ethics\thirdPartyDoctrine.docx" download>The Third Party Doctrine and Fourth Amendment (.docx file)</a></dt>
+							<dd>A research report covering the conflict between the 
+							Fourth Amendment and the Third Party Doctrine. Each student 
+							was tasked to consider if the Third Party Doctrine conflicts with
+							the privacy rights set in the Fourth Amendment.</dd>
+						</div>
+						<div class="dlGroup">
+							<dt><a href="downloads\ethics\breachNotificationStandards.docx" download>Breach Notification Standards within Canada and the US (.docx file)</a></dt>
+							<dd>A research report covering the standards to breach notification. 
+							Each student was tasked to compare Federal, Provincial, and Health laws 
+							for Canada and the US regarding the breach of personal/sensitive data.</dd>
+						</div>
+						<div class="dlGroup">
+							<dt><a href="downloads\ethics\caseABTesting.docx" download>Case Study: The Ethics of A/B Testing (.docx file)</a></dt>
+							<dd>As a case study, each student selected any topic and covered 
+							the ethical implications of it. After some research, I chose A/B 
+							Testing. I was interested in how a practice so common could be 
+							moderated.</dd>
+						</div>
+						<div class="dlGroup">
+							<dt><a href="downloads\ethics\caseIntelPolicies.docx" download>Case Study: Intel's Ethics and Privacy Policies (.docx file)</a></dt>
+							<dd>As a case study, each student selected a country or a company 
+							and researched its privacy and ethics laws/policies. Each student 
+							identified areas of strength and areas of improvement.<br /><br />
+							
+							I wanted to identify the policies of a business working in the 
+							technology field. That way, I have a greater understanding of 
+							privacy and ethical standards for when I enter the tech workforce. 
+							I chose Intel as they were one of the world's top ethical companies 
+							in 2017, and I was curious what made them so ethical.<br /><br />
+							
+							<a href="downloads\ethics\caseIntelPolicies.pptx" download>Click here for the companion PowerPoint file I presented in class.</a></dd>
+						</div>
+					</dl>
+				</section>
+			</article>
+		</main>
+		
+		<footer>
+			<p>Richard Rennehan's E&#8288;-&#8288;Portfolio</p>
+			<div id="social">
+				<a href="https://www.facebook.com/richard.rennehan" target="_blank"><img src="images\facebook.png" alt="Facebook Link" /></a><a href="https://www.linkedin.com/in/richard-rennehan/" target="_blank"><img src="images\linkedIn.png" alt="LinkedIn Link" /></a>
+			</div>
+			<p><a href="https://github.com/rrennehan/rrennehan.github.io" target="_blank">Link to Github Repo</a></p>
+			<p><a href="#top">Back to top</a></p>
+		</footer>
+	
+	</body>
+</html>
