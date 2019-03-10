@@ -6,6 +6,7 @@
 h1 {
 	border: 1px solid black;
 	text-align: center;
+	font-size: 1.2rem;
 }
 
 dd, dt {
@@ -88,7 +89,6 @@ dl img {
 	
 	article h1 {
 		display: table-cell;
-		vertical-align: middle;
 	}
 
 	aside {
