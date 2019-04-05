@@ -4,7 +4,7 @@
 	Contains rules used across all pages*/
 
 @keyframes bodySlide {
-	from {top: 500px;}
+	from {top: 100vw;}
 	to {top: 0px;}
 }
 
@@ -211,5 +211,10 @@ a:active {
 	}
 }
 
-
+/*Fix for header text activating a new row*/
+@media only screen and (min-width: 481px) and (max-width: 600px) {
+	nav ul li {
+		font-size: 1rem;
+	}
+}
 
