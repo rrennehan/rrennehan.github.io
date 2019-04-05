@@ -3,6 +3,16 @@
 /*	generalStyles.css
 	Contains rules used across all pages*/
 
+@keyframes bodySlide {
+	from {top: 500px;}
+	to {top: 0px;}
+}
+
+@keyframes changeColor {
+	from{background-color: red}
+	to{background-color: green}
+}
+
 html {
 	margin: 0 auto;
 	max-width: 960px;
@@ -22,6 +32,7 @@ body {
 	-webkit-flex-flow: row wrap;
 	flex-flow: row wrap;
 	background-color: hsl(0, 0%, 81%);
+	position: relative;
 }
 
 #mobileExclusive {
@@ -84,6 +95,11 @@ main {
 	height: 100%;
 }
 
+main, footer {
+	position: relative;
+	animation-name: bodySlide;
+	animation-duration: 0.5s;
+}
 
 /*Footer Rules*/
 
