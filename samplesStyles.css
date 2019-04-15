@@ -27,6 +27,11 @@ dl img {
 	max-width: 80%;
 }
 
+dl video {
+	max-width: 80%;
+	max-height: 400px;
+}
+
 .experience {
 	max-width: 80%;
 	background-color: gray;
