@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+
+<html>
+
+    <title>Game</title>
+    <meta charset = "UTF-8" />
+
+    <style>
+    
+        html {
+            height: 100%;
+            width: 100%;
+        }
+        
+        body {
+            display: flex;
+            max-height: 100%;
+            max-width: 100%;
+            overflow: hidden;
+        }
+
+        #orange {
+            display: flex;
+            flex-wrap: nowrap;
+            margin: 0;
+            background-color: rgba(255, 166, 0, 0.4);
+            width: 50vw;
+            height: 100vh;
+        }
+
+        #blue {
+            display: flex;
+            flex-wrap: nowrap;
+            margin: 0;
+            background-color: rgba(57, 57, 255, 0.4);
+            width: 50vw;
+            min-height: 100vh;
+        }
+        #gameScreen {
+            border: 1px solid black;
+            padding-left: 0;
+            padding-right: 0;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            margin-top: -300px;
+            margin-left: -400px;
+        }
+
+        img {
+            display: none;
+        }
+    </style>
+<head>
+
+</head>
+
+<body> 
+    <img id="gameLogo" src="assets/images/gameLogo.png">
+    <img id="img_heart" src="assets/images/heart.png">
+    <img id="orangeSmileLeft" src="assets/images/orangeSmileLeft.png">
+    <img id="orangeSmileRight" src="assets/images/orangeSmileRight.png">
+    <img id="blueSmileLeft" src="assets/images/blueSmileLeft.png">
+    <img id="blueSmileRight" src="assets/images/blueSmileRight.png">
+
+    <div id="orange"></div>
+    <div id="blue"></div>
+    <canvas id="gameScreen" width="800" height="600" ></canvas>
+
+    <script type="module" src="main.js"></script>
+</body>
+
+</html>
