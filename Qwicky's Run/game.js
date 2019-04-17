@@ -151,6 +151,8 @@ export default class Game {
             ctx.fillText("Controls:", this.gameWidth / 2, this.gameHeight / 2 + 40);
             ctx.fillText("Space Bar: Swap Color", this.gameWidth / 2, this.gameHeight / 2 + 80);
             ctx.fillText("Up and Down arrows: Swap Gravity", this.gameWidth / 2, this.gameHeight / 2 + 120);
+            ctx.font = "15px Arial";
+            ctx.fillText("Music by Hige Driver", this.gameWidth / 2, this.gameHeight / 2 + 160);
         }
 
         if(this.gamestate === GAMESTATE.GAMEOVER) {
