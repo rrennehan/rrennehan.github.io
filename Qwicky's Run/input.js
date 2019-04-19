@@ -1,3 +1,5 @@
+"use strict";
+
 import Character from "./character.js";
 import Game from "./game.js";
 
@@ -6,7 +8,7 @@ const GAMESTATE = {
     RUNNING: 1,
     MENU: 2,
     GAMEOVER: 3,
-    NEWLEVEL: 4
+    COUNTDOWN: 4,
 };
 
 export default class InputHandler {
@@ -50,8 +52,13 @@ export default class InputHandler {
                     if(game.gamestate === GAMESTATE.RUNNING) character.swapColor();
                     break;
                 case 13: //Enter key
-                    if(game.gamestate === GAMESTATE.MENU) game.start();
-                    if(game.gamestate === GAMESTATE.GAMEOVER) game.start();
+                    console.log(game.paused);    
+                    if(game.gamestate === GAMESTATE.MENU || 
+                        game.gamestate === GAMESTATE.GAMEOVER) {
+                            game.countdown.currentTime = 0;
+                            game.countdown.play();
+                            game.gamestate = GAMESTATE.COUNTDOWN;
+                        } 
                     break;
                 case 27:
                     //game.togglePause();

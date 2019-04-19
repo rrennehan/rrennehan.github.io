@@ -1,3 +1,5 @@
+"use strict";
+
 export default class Bar {
 
     constructor(game) {
@@ -10,8 +12,14 @@ export default class Bar {
         this.width = 10;
         this.height = 450;
         this.colors = ["#e56b29", "#3351f7", "#000000"]; //Add black
-        this.colorState = Math.round(Math.random());
+        this.colorGenerator = Math.floor(Math.random() * 100) + 1;  // returns a random integer from 1 to 100
+        this.colorState;
         this.markedForDeletion = false;
+    }
+
+    setColor() {
+        if(this.colorGenerator < 50) this.colorState = 0;
+        if(this.colorGenerator >= 50) this.colorState = 1;
     }
 
     update(deltaTime) {

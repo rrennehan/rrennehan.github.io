@@ -1,3 +1,5 @@
+"use strict";
+
 export default class Timer {
 
     constructor (game) {
@@ -13,14 +15,13 @@ export default class Timer {
     }
 
     draw(ctx) {
-        
         ctx.fillStyle = "#FFFFFF";
-        ctx.fillRect(200,12.5,150,50);
+        ctx.fillRect(200,12.5,175,50);
 
         ctx.fillStyle = "#000000";
-        ctx.font='30px Arial';
-        ctx.textAlign = "center";
+        ctx.font='23px Arial';
+        ctx.textAlign = "right";
         
-        ctx.fillText(this.time.toString(),550/2,90/2,150);
+        ctx.fillText(`${this.time.toFixed(1)} seconds`, 715/2,90/2, 175);
     }
 }

@@ -1,3 +1,5 @@
+"use strict";
+
 import Game from './game.js';
 
     //ensure link to script in html has type = "module"
@@ -12,7 +14,11 @@ const GAME_WIDTH = 800;
 const GAME_HEIGHT = 600;
 
 let game = new Game(GAME_WIDTH, GAME_HEIGHT);
+let hidden = false;
 
+document.addEventListener('visibilitychange', function(e) {
+    hidden = true;
+});
 //Important: When you redraw on the canvas, everything before is still there
 //Creates a burn-in effect for moving objects.
 //In this case, the above clearRect will prevent this when reloading
@@ -28,6 +34,7 @@ let game = new Game(GAME_WIDTH, GAME_HEIGHT);
 
 let lastTime = 0;
 
+
 //Don't use a while true loop. While true will run faster on better computers
 function gameLoop(timeStamp) {
     let deltaTime = timeStamp - lastTime;
@@ -38,6 +45,14 @@ function gameLoop(timeStamp) {
     game.draw(ctx);
 
     requestAnimationFrame(gameLoop);
+
+    if(hidden) {
+        let sounds = document.getElementsByTagName('audio');
+        for(let i=0; i<sounds.length; i++) sounds[i].pause();
+        game = new Game(GAME_WIDTH, GAME_HEIGHT);
+        hidden = false;
+        return;
+    } 
 }
 
 requestAnimationFrame(gameLoop); //gives us a valid time stamp

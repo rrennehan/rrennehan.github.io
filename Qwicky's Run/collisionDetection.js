@@ -1,3 +1,6 @@
+"use strict";
+
+
 export function detectCollision(character, gameObject) {
     
     let bottomOfCharacter = character.position.y + character.size.height;

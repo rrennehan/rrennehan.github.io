@@ -1,5 +1,6 @@
-import { detectCollision } from './collisionDetection.js';
+"use strict";
 
+import { detectCollision } from './collisionDetection.js';
 
 const GAMESTATE = {
     PAUSED: 0,
@@ -20,19 +21,29 @@ export default class Character {
         this.maxSpeed = 15;
         this.colors = ["#e56b29", "#3351f7"];
         this.colorState = 0;
-        this.state = 1;
+        this.invincibilityState = 1;
         this.flipStatus = 0;
 
         this.size = {width: 50, height: 75};
         this.position = {x: 80, y: 525-this.size.height};
 
+        this.image0 = document.getElementById("orangeSmileLeft");
         this.image1 = document.getElementById("orangeSmileRight");
-        this.image2 = document.getElementById("blueSmileRight");
-        this.image3 = document.getElementById("orangeSmileLeft");
-        this.image4 = document.getElementById("blueSmileLeft");
+        this.image2 = document.getElementById("blueSmileLeft");
+        this.image3 = document.getElementById("blueSmileRight");
+        this.image4 = document.getElementById("orangeFrownLeft");
+        this.image5 = document.getElementById("orangeFrownRight");
+        this.image6 = document.getElementById("blueFrownLeft");
+        this.image7 = document.getElementById("blueFrownRight");
+
+        this.imageArray = [this.image0, this.image1, this.image2, this.image3, this.image4, this.image5, this.image6, this.image7];
+        this.imageSelector = 0;
 
         this.loopCount = 0;
-        this.whichLeg = true;
+        this.lastTimeHit = 0;
+
+        this.whichLeg = true; //left leg currently touching ground
+
     }
 
     readyToFlip() {
@@ -50,15 +61,19 @@ export default class Character {
     swapColor(){
         this.colorState ++;
         if(this.colorState === 2) this.colorState = 0;
+        this.lastTimeSwap = this.loopCount;
     }
 
     reset() {
+        this.loopCount = 0;
+        this.lastTimeHit = 0;
+        this.lastTimeSwap = 0;
+
         this.speed = 15;
         this.maxSpeed = 15;
         
-        this.colors = ["#e56b29", "#3351f7"];
         this.colorState = 0;
-        this.state = 1;
+        this.invincibilityState = 1;
         this.flipStatus = 0;
 
         this.size = {width: 50, height: 75};
@@ -75,6 +90,7 @@ export default class Character {
       }
 
     update(deltaTime) {
+        this.loopCount ++;
         if(this.flipStatus === 1) {
             if(this.position.y === 525 - this.size.height) {
                this.flipGravityUp();
@@ -100,12 +116,12 @@ export default class Character {
                 if((this.colorState !== bar.colorState)) {
                     this.game.lives --;
                     bar.markedForDeletion = true;
-                    this.state = 5;
+                    this.invincibilityState = 2;
                     this.game.laserSound.currentTime = 0;
                     this.game.laserSound.play();
+                    this.lastTimeHit = this.loopCount;
                 }
             }
-        
         });
     }
 
@@ -113,49 +129,30 @@ export default class Character {
         if(this.flipStatus === 1) {
             this.flipStatus = 0;
         } 
-        //ctx.rotate(90*Math.PI/180);
-        this.loopCount ++;
+
         if(this.game.gamestate === GAMESTATE.RUNNING) {
             if(this.loopCount % 10 === 0) {
                 this.whichLeg = !this.whichLeg;
-                this.loopCount = 0;
             }
         }
-        if(this.speed > 0) {
-            if(this.colorState === 0) {
-                if(this.whichLeg) {
-                    ctx.drawImage(this.image3, this.position.x, this.position.y, this.size.width, this.size.height);
-                }
-                else {
-                    ctx.drawImage(this.image1, this.position.x, this.position.y, this.size.width, this.size.height);
-                }
-            }
-            else if(this.colorState === 1) {
-                if(this.whichLeg) {
-                    ctx.drawImage(this.image4, this.position.x, this.position.y, this.size.width, this.size.height);
-                }
-                else {
-                    ctx.drawImage(this.image2, this.position.x, this.position.y, this.size.width, this.size.height);
-                }
-            }
+
+        this.imageSelector = 0;
+        this.imageSelector += 2 * this.colorState; // 2 or 0
+        if(!this.whichLeg) {
+            this.imageSelector += 1;
+        }
+        
+        if(this.loopCount - this.lastTimeHit < 60 && this.lastTimeHit !== 0 || this.game.lives <= 1) { //add frown
+            this.imageSelector += 4;
+        }
+        
+
+        if(this.speed > 0) {    
+            ctx.drawImage(this.imageArray[this.imageSelector], this.position.x, this.position.y, this.size.width, this.size.height);
+            //if(smile)
         }
         else if(this.speed < 0) {
-            if(this.colorState === 0) {
-                if(this.whichLeg) {
-                    this.rotateAndPaintImage(ctx, this.image3, 180*Math.PI/180, this.position.x, this.position.y, this.size.width, this.size.height);
-                }
-                else {
-                    this.rotateAndPaintImage(ctx, this.image1, 180*Math.PI/180, this.position.x, this.position.y, this.size.width, this.size.height);
-                }
-            }
-            else if(this.colorState === 1) {
-                if(this.whichLeg) {
-                    this.rotateAndPaintImage(ctx, this.image4, 180*Math.PI/180, this.position.x, this.position.y, this.size.width, this.size.height);
-                }
-                else {
-                    this.rotateAndPaintImage(ctx, this.image2, 180*Math.PI/180, this.position.x, this.position.y, this.size.width, this.size.height);
-                }
-            }
+            this.rotateAndPaintImage(ctx, this.imageArray[this.imageSelector], 180*Math.PI/180, this.position.x, this.position.y, this.size.width, this.size.height);
         }
 
         
