@@ -62,6 +62,7 @@ export default class Character {
         this.colorState ++;
         if(this.colorState === 2) this.colorState = 0;
         this.lastTimeSwap = this.loopCount;
+        this.game.colorSwapCount ++;
     }
 
     reset() {
@@ -91,6 +92,19 @@ export default class Character {
 
     update(deltaTime) {
         this.loopCount ++;
+        this.game.bars.forEach(bar => {
+            if(detectCollision(this, bar)) {
+                if((this.colorState !== bar.colorState)) {
+                    this.game.lives --;
+                    this.invincibilityState = 1;
+                    this.game.laserSound.currentTime = 0;
+                    this.game.laserSound.play();
+                    this.lastTimeHit = this.loopCount;
+                    if(this.game.lives !== 0) this.game.bars = [];
+                    this.game.intervalSelector = this.game.intervalSpeeds.length - 1;
+                }
+            }
+        });
         if(this.flipStatus === 1) {
             if(this.position.y === 525 - this.size.height) {
                this.flipGravityUp();
@@ -110,19 +124,6 @@ export default class Character {
             this.position.y = 525 - this.size.height;
             
         }
-
-        this.game.bars.forEach(bar => {
-            if(detectCollision(this, bar)) {
-                if((this.colorState !== bar.colorState)) {
-                    this.game.lives --;
-                    bar.markedForDeletion = true;
-                    this.invincibilityState = 2;
-                    this.game.laserSound.currentTime = 0;
-                    this.game.laserSound.play();
-                    this.lastTimeHit = this.loopCount;
-                }
-            }
-        });
     }
 
     draw(ctx) {

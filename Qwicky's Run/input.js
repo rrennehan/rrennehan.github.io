@@ -55,9 +55,9 @@ export default class InputHandler {
                     console.log(game.paused);    
                     if(game.gamestate === GAMESTATE.MENU || 
                         game.gamestate === GAMESTATE.GAMEOVER) {
+                            game.gamestate = GAMESTATE.COUNTDOWN;
                             game.countdown.currentTime = 0;
                             game.countdown.play();
-                            game.gamestate = GAMESTATE.COUNTDOWN;
                         } 
                     break;
                 case 27:
