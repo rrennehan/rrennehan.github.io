@@ -309,26 +309,24 @@ export default class Game {
                 this.reset();
             }
             this.lives = 3;
-            if (this.countdown.duration > 0 && !this.countdown.paused) {
-                if(this.loopCount >= 0 && this.loopCount < 20) {
-                ctx.drawImage(document.getElementById("countdown3"), this.gameWidth / 2 - 25, this.gameHeight / 2 - 100, 50, 100);
-                }
-                else if(this.loopCount >= 20 && this.loopCount < 40) {
-                    ctx.drawImage(document.getElementById("countdown2"), this.gameWidth / 2 - 25, this.gameHeight / 2 - 100, 50, 100);
-                }
-                else if(this.loopCount >= 40 && this.loopCount < 60) {
-                    ctx.drawImage(document.getElementById("countdown1"), this.gameWidth / 2 - 25, this.gameHeight / 2 - 100, 50, 100);
-                }
-                else if(this.loopCount >= 60 && this.loopCount < 80) {
-                    ctx.drawImage(document.getElementById("countdownGo"), this.gameWidth / 2 - 75, this.gameHeight / 2 - 100, 150, 100);
-                }
-                this.loopCount ++;
-                if(this.loopCount >= 80) {
-                    this.start(); 
-                    this.gamestate = GAMESTATE.RUNNING;
-                    this.loopCount = 0;
-                } 
+            if(this.loopCount >= 0 && this.loopCount < 20) {
+            ctx.drawImage(document.getElementById("countdown3"), this.gameWidth / 2 - 25, this.gameHeight / 2 - 100, 50, 100);
             }
+            else if(this.loopCount >= 20 && this.loopCount < 40) {
+                ctx.drawImage(document.getElementById("countdown2"), this.gameWidth / 2 - 25, this.gameHeight / 2 - 100, 50, 100);
+            }
+            else if(this.loopCount >= 40 && this.loopCount < 60) {
+                ctx.drawImage(document.getElementById("countdown1"), this.gameWidth / 2 - 25, this.gameHeight / 2 - 100, 50, 100);
+            }
+            else if(this.loopCount >= 60 && this.loopCount < 80) {
+                ctx.drawImage(document.getElementById("countdownGo"), this.gameWidth / 2 - 75, this.gameHeight / 2 - 100, 150, 100);
+            }
+            this.loopCount ++;
+            if(this.loopCount >= 80) {
+                this.start(); 
+                this.gamestate = GAMESTATE.RUNNING;
+                this.loopCount = 0;
+            } 
         }
     }
 }
