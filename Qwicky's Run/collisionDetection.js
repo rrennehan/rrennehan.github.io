@@ -21,13 +21,13 @@ export function detectCollision(character, gameObject) {
         return true;
 
     } else if(gameObject.colorState === 2) { //Special rules for spikes
-        if(gameObject.colorGenerator <= 94 &&
+        if(gameObject.colorGenerator < 90 &&
             topOfCharacter < bottomOfObject && 
             leftSideOfObject <= leftSideOfCharacter &&
             rightSideOfObject >= leftSideOfCharacter) {
                 return true;
             }
-        if(gameObject.colorGenerator > 94 && 
+        if(gameObject.colorGenerator >= 90 && 
             bottomOfCharacter > topOfObject && 
             leftSideOfObject <= leftSideOfCharacter &&
             rightSideOfObject >= leftSideOfCharacter) {

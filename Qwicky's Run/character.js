@@ -3,11 +3,15 @@
 import { detectCollision } from './collisionDetection.js';
 
 const GAMESTATE = {
-    PAUSED: 0,
-    RUNNING: 1,
-    MENU: 2,
+    COUNTDOWN: 1,
+    RUNNING: 2,
     GAMEOVER: 3,
-    NEWLEVEL: 4,
+    MENU: 4,
+    INSTRUCTIONS: 5,
+    LEADERBOARDS: 6,
+    ACHIEVEMENTS: 7,
+    STATS: 8,
+    CREDITS: 9, 
 };
 
 export default class Character {
@@ -27,16 +31,17 @@ export default class Character {
         this.size = {width: 50, height: 75};
         this.position = {x: 80, y: 525-this.size.height};
 
-        this.image0 = document.getElementById("orangeSmileLeft");
-        this.image1 = document.getElementById("orangeSmileRight");
-        this.image2 = document.getElementById("blueSmileLeft");
-        this.image3 = document.getElementById("blueSmileRight");
-        this.image4 = document.getElementById("orangeFrownLeft");
-        this.image5 = document.getElementById("orangeFrownRight");
-        this.image6 = document.getElementById("blueFrownLeft");
-        this.image7 = document.getElementById("blueFrownRight");
+        this.imageArray = [
+            document.getElementById("orangeSmileLeft"),
+            document.getElementById("orangeSmileRight"),
+            document.getElementById("blueSmileLeft"),
+            document.getElementById("blueSmileRight"),
+            document.getElementById("orangeFrownLeft"),
+            document.getElementById("orangeFrownRight"),
+            document.getElementById("blueFrownLeft"),
+            document.getElementById("blueFrownRight"),
+        ];
 
-        this.imageArray = [this.image0, this.image1, this.image2, this.image3, this.image4, this.image5, this.image6, this.image7];
         this.imageSelector = 0;
 
         this.loopCount = 0;
@@ -51,11 +56,13 @@ export default class Character {
     }
 
     flipGravityUp(){
-        this.speed = -this.maxSpeed;  
+        this.speed = -this.maxSpeed;
+        this.game.gravityFlipCount ++; 
     }
 
     flipGravityDown(){
         this.speed = this.maxSpeed;
+        this.game.gravityFlipCount ++; 
     }
 
     swapColor(){
@@ -100,7 +107,17 @@ export default class Character {
                     this.game.laserSound.currentTime = 0;
                     this.game.laserSound.play();
                     this.lastTimeHit = this.loopCount;
-                    if(this.game.lives !== 0) this.game.bars = [];
+                    if(this.game.lives !== 0) {
+                        this.game.bars = [];
+                    } else { //end of game
+                        this.game.timer.stop();
+                        this.game.gamesPlayed ++;
+                        this.game.averageTimeRan = (parseFloat(this.game.timer.time.toFixed(3)) + this.game.totalTimeRan) / this.game.gamesPlayed;
+                        if(this.game.timer.time > this.game.bestTime) {
+                            this.game.bestTime = this.game.timer.time;
+                        }
+                        this.game.totalTimeRan += parseFloat(this.game.timer.time.toFixed(3));
+                    }
                     this.game.intervalSelector = this.game.intervalSpeeds.length - 1;
                 }
             }

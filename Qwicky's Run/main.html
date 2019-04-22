@@ -15,53 +15,7 @@
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="msapplication-config" content="assets\images\favicon/browserconfig.xml">
     <meta name="theme-color" content="#ffffff">
-
-    <style>
-    
-        html {
-            height: 100%;
-            width: 100%;
-        }
-        
-        body {
-            display: flex;
-            max-height: 100%;
-            max-width: 100%;
-            overflow: hidden;
-        }
-
-        #orange {
-            display: flex;
-            flex-wrap: nowrap;
-            margin: 0;
-            background-color: rgba(255, 166, 0, 0.4);
-            width: 50vw;
-            height: 100vh;
-        }
-
-        #blue {
-            display: flex;
-            flex-wrap: nowrap;
-            margin: 0;
-            background-color: rgba(57, 57, 255, 0.4);
-            width: 50vw;
-            min-height: 100vh;
-        }
-        #gameScreen {
-            border: 1px solid black;
-            padding-left: 0;
-            padding-right: 0;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            margin-top: -300px;
-            margin-left: -400px;
-        }
-
-        img {
-            display: none;
-        }
-    </style>
+    <link rel="stylesheet" href="main.css">
 
 </head>
 
@@ -79,6 +33,9 @@
     <img id="countdownGo" src="assets/images/countdownGo.png">
     <img id="levelUp" src="assets/images/levelUp.png">
 
+    <img id="rightArrow" src="assets/images/rightArrow.png">
+    <img id="leftArrow" src="assets/images/leftArrow.png">
+
     <img id="orangeSmileLeft" src="assets/images/orangeSmileLeft.png">
     <img id="orangeSmileRight" src="assets/images/orangeSmileRight.png">
     <img id="blueSmileLeft" src="assets/images/blueSmileLeft.png">
@@ -87,6 +44,19 @@
     <img id="orangeFrownRight" src="assets/images/orangeFrownRight.png">
     <img id="blueFrownLeft" src="assets/images/blueFrownLeft.png">
     <img id="blueFrownRight" src="assets/images/blueFrownRight.png">
+
+    <img id="15SecondsBadge" src="assets/images/15SecondsBadge.png">
+    <img id="30SecondsBadge" src="assets/images/30SecondsBadge.png">
+    <img id="60SecondsBadge" src="assets/images/60SecondsBadge.png">
+    <img id="90SecondsBadge" src="assets/images/90SecondsBadge.png">
+    <img id="endOfSongBadge" src="assets/images/endOfSongBadge.png">
+    <img id="colorBadge" src="assets/images/colorBadge.png">
+    <img id="15SecondsBadgeLocked" src="assets/images/15SecondsBadgeLocked.png">
+    <img id="30SecondsBadgeLocked" src="assets/images/30SecondsBadgeLocked.png">
+    <img id="60SecondsBadgeLocked" src="assets/images/60SecondsBadgeLocked.png">
+    <img id="90SecondsBadgeLocked" src="assets/images/90SecondsBadgeLocked.png">
+    <img id="endOfSongBadgeLocked" src="assets/images/endOfSongBadgeLocked.png">
+    <img id="colorBadgeLocked" src="assets/images/colorBadgeLocked.png">
 
     <audio id="gameTheme" src="assets/sounds/gameTheme.mp3"></audio>
     <audio id="heartBeat" src="assets/sounds/heartBeat.mp3"></audio>

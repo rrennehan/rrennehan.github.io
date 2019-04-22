@@ -1,11 +1,15 @@
 "use strict";
 
 const GAMESTATE = {
-    PAUSED: 0,
-    RUNNING: 1,
-    MENU: 2,
+    COUNTDOWN: 1,
+    RUNNING: 2,
     GAMEOVER: 3,
-    COUNTDOWN: 4,
+    MENU: 4,
+    INSTRUCTIONS: 5,
+    LEADERBOARDS: 6,
+    ACHIEVEMENTS: 7,
+    STATS: 8,
+    CREDITS: 9, 
 };
 
 export default class Background {
@@ -35,6 +39,7 @@ export default class Background {
     reset() {
         this.loopCount = 0;
         this.windowPosition.x = 700;
+        this.leftWallPosition.x = 0;
     }
 
     draw(ctx) {
@@ -45,9 +50,6 @@ export default class Background {
         ctx.fillRect(0,75,800,450);*/
         ctx.drawImage(this.background,0,0,800,600);
         ctx.drawImage(this.windowPicture, this.windowPosition.x, this.windowPosition.y, 100, 100);
-        if(this.game.gamestate == GAMESTATE.COUNTDOWN) {
-            this.leftWallPosition.x = 0;
-        }
         if(this.leftWallPosition.x + this.leftWallWidth > 0) {
             ctx.fillStyle = '#808080';
             ctx.fillRect(this.leftWallPosition.x, this.leftWallPosition.y, this.leftWallWidth, 452);

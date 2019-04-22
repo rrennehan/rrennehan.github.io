@@ -7,11 +7,17 @@ export default class Timer {
         this.gameHeight = game.gameHeight;
         this.game = game;
         this.time = 0;
+        this.stopped = false;
     }
 
     update(deltaTime) {
-        this.time += parseFloat((deltaTime/1000).toFixed(3));
+        if(this.stopped) return;
+        this.time += parseFloat((16.667/1000).toFixed(3));
         this.time = parseFloat(this.time.toFixed(3));
+    }
+
+    stop() {
+        this.stopped = true;
     }
 
     draw(ctx) {
