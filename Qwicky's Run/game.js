@@ -379,13 +379,13 @@ export default class Game {
             ctx.fillText('Press ENTER to return to main menu', this.gameWidth /2, this.gameHeight / 2 + 80);
         }
 
-        if(this.gamestate === GAMESTATE.MENU) {
+        else if(this.gamestate === GAMESTATE.MENU) {
             this.setUpMenu(ctx);
             ctx.drawImage(document.getElementById("gameLogo"),  150, 25, 500, 150);
             ctx.drawImage(document.getElementById("rightArrow"), this.gameWidth / 2 - 275, 150 + (50 * this.selectedItem), 100, 40);
             ctx.drawImage(document.getElementById("leftArrow"), this.gameWidth / 2 + 175, 150 + (50 * this.selectedItem), 100, 40);
         }
-        if(this.gamestate === GAMESTATE.INSTRUCTIONS) {
+        else if(this.gamestate === GAMESTATE.INSTRUCTIONS) {
             this.setUpMenu(ctx);
             ctx.fillStyle = "white";
             ctx.fillRect(150,75,500,400);
@@ -400,7 +400,7 @@ export default class Game {
             ctx.fillText("key to flip gravity and avoid spikes!", 160, 400, 400);
             ctx.fillText("Survive as long as you can!", 160, 460, 400); 
         }
-        if(this.gamestate === GAMESTATE.LEADERBOARDS) {
+        else if(this.gamestate === GAMESTATE.LEADERBOARDS) {
             this.setUpMenu(ctx);
             ctx.fillStyle = "white";
             ctx.fillRect(150,75,500,400);
@@ -409,7 +409,7 @@ export default class Game {
             ctx.textAlign = "center";
             ctx.fillText('Coming soon!', this.gameWidth /2, this.gameHeight / 2);
         }
-        if(this.gamestate === GAMESTATE.ACHIEVEMENTS) {
+        else if(this.gamestate === GAMESTATE.ACHIEVEMENTS) {
             this.setUpMenu(ctx);
             ctx.fillStyle = "white";
             ctx.fillRect(this.gameWidth / 2 - 250,75,500,400);
@@ -420,7 +420,7 @@ export default class Game {
             ctx.drawImage(this.endOfSongBadge, this.gameWidth/2 - 62.5, 325, 125, 125);
             ctx.drawImage(this.colorBadge, 510, 325, 125, 125);
         }
-        if(this.gamestate === GAMESTATE.STATS) {
+        else if(this.gamestate === GAMESTATE.STATS) {
             this.setUpMenu(ctx);
             ctx.fillStyle = "white";
             ctx.fillRect(150,75,500,400);
@@ -434,7 +434,7 @@ export default class Game {
             ctx.fillText(`Color Swap Count: ${this.colorSwapCount}`, 175, 240);
             ctx.fillText(`Gravity Flip Count: ${this.gravityFlipCount}`, 175, 270);
         }
-        if(this.gamestate === GAMESTATE.CREDITS) {
+        else if(this.gamestate === GAMESTATE.CREDITS) {
             this.setUpMenu(ctx);
             ctx.fillStyle = "white";
             ctx.fillRect(150,75,500,400);

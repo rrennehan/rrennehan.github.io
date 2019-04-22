@@ -24,8 +24,7 @@ document.addEventListener('visibilitychange', function(e) {
     hidden = true;
 });
 //Important: When you redraw on the canvas, everything before is still there
-//Creates a burn-in effect for moving objects.
-//In this case, the above clearRect will prevent this when reloading
+//Creates a burn-in effect for moving objects. Use ClearRect to refresh
 
 
 //establish game loop: it does:
@@ -51,12 +50,12 @@ function gameLoop(timeStamp) {
         console.log(times60);
     }*/
   
-    //ctx.clearRect(0,0, GAME_WIDTH, GAME_HEIGHT); //Reaches exactly 60.00 FPS more times without this line
-    offScreenCTX.clearRect(0,0, GAME_WIDTH, GAME_HEIGHT); //Reset off screen canvas
+    //ctx.clearRect(0,0, GAME_WIDTH, GAME_HEIGHT); Reaches exactly 60.00 FPS more times without this line
+    //offScreenCTX.clearRect(0,0, GAME_WIDTH, GAME_HEIGHT); //Reset off screen canvas
     
     game.update(deltaTime);
     game.preRender(offScreenCTX); //prerender on the off screen canvas
-    ctx.drawImage(offScreenCanvas, 0, 0); //draw the result onto the on-screen canvas
+    ctx.drawImage(offScreenCanvas, 0, 0, 800, 600); //draw the result onto the on-screen canvas
 
     requestAnimationFrame(gameLoop);
 

@@ -139,7 +139,9 @@ export default class Character {
         }
         if(this.position.y > 525 - this.size.height) {
             this.position.y = 525 - this.size.height;
-            
+        }
+        if(this.loopCount % 10 === 0) {
+            this.whichLeg = !this.whichLeg;
         }
     }
 
@@ -147,12 +149,6 @@ export default class Character {
         if(this.flipStatus === 1) {
             this.flipStatus = 0;
         } 
-
-        if(this.game.gamestate === GAMESTATE.RUNNING) {
-            if(this.loopCount % 10 === 0) {
-                this.whichLeg = !this.whichLeg;
-            }
-        }
 
         this.imageSelector = 0;
         this.imageSelector += 2 * this.colorState; // 2 or 0
@@ -164,7 +160,6 @@ export default class Character {
             this.imageSelector += 4;
         }
         
-
         if(this.speed > 0) {    
             ctx.drawImage(this.imageArray[this.imageSelector], this.position.x, this.position.y, this.size.width, this.size.height);
             //if(smile)

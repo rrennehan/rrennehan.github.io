@@ -43,11 +43,6 @@ export default class Background {
     }
 
     draw(ctx) {
-        /*ctx.fillStyle = "#696969";
-        ctx.fillRect(0,0,800,75);
-        ctx.fillRect(0,this.gameHeight - 75,800,75);
-        ctx.fillStyle = "#D3D3D3";
-        ctx.fillRect(0,75,800,450);*/
         ctx.drawImage(this.background,0,0,800,600);
         ctx.drawImage(this.windowPicture, this.windowPosition.x, this.windowPosition.y, 100, 100);
         if(this.leftWallPosition.x + this.leftWallWidth > 0) {

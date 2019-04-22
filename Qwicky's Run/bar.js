@@ -10,11 +10,16 @@ export default class Bar {
         this.position = {x: this.gameWidth, y: 75};
         this.speed = 10;
         this.maxSpeed = 15;
-        this.width = 10;
+        this.width = 11;
         this.height = 450;
         this.colors = ["#e56b29", "#3351f7", "#000000"]; //Add black
         this.colorGenerator = Math.floor(Math.random() * 100) + 1;  // returns a random integer from 1 to 100
         this.colorState;
+        this.imageArray = [
+            document.getElementById("orangeBar"),
+            document.getElementById("blueBar"),
+            document.getElementById("spikes")
+        ];
     }
 
     setColor() {
@@ -42,10 +47,10 @@ export default class Bar {
                 this.game.colorChain0 = 0;
             }
             else if(this.colorGenerator >= 80) {
-                let existingBlackBar = this.game.bars.find(bar => {
+                let existingSpikes = this.game.bars.find(bar => {
                     return bar.colorState === 2;
                 });
-                if(existingBlackBar == undefined) { //Make spikes to gravity flip over
+                if(existingSpikes == undefined) { //Make spikes to gravity flip over
                     this.colorState = 2;
                     this.width = 1600;
                     if(this.colorGenerator < 90) { //Spikes on ceiling
@@ -89,13 +94,9 @@ export default class Bar {
     }
 
     draw(ctx) {
-        if(this.colorState === 0 || this.colorState === 1) {
-            ctx.fillStyle = this.colors[this.colorState];
-            ctx.fillRect(this.position.x, this.position.y, this.width, this.height);
+        if(this.colorState === 2 && this.colorGenerator < 90) {
+            this.rotateAndPaintImage(ctx, this.imageArray[this.colorState], 180*Math.PI/180, this.position.x, this.position.y, this.width, this.height);
         }
-        else {
-            if(this.colorGenerator < 90 ) this.rotateAndPaintImage(ctx, document.getElementById("spikes"), 180*Math.PI/180, this.position.x, this.position.y, this.width, this.height);
-            else ctx.drawImage(document.getElementById("spikes"), this.position.x, this.position.y, this.width, this.height);
-        }
+        else ctx.drawImage(this.imageArray[this.colorState], this.position.x, this.position.y, this.width, this.height);
     }
 }
