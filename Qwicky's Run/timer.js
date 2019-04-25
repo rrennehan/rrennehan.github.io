@@ -22,7 +22,7 @@ export default class Timer {
 
     draw(ctx) {
         ctx.fillStyle = "#FFFFFF";
-        ctx.fillRect(200,12.5,175,50);
+        ctx.fillRect(200,12,175,50);
 
         ctx.fillStyle = "#000000";
         ctx.font='23px Arial';

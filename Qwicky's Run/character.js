@@ -110,13 +110,7 @@ export default class Character {
                     if(this.game.lives !== 0) {
                         this.game.bars = [];
                     } else { //end of game
-                        this.game.timer.stop();
-                        this.game.gamesPlayed ++;
-                        this.game.averageTimeRan = (parseFloat(this.game.timer.time.toFixed(3)) + this.game.totalTimeRan) / this.game.gamesPlayed;
-                        if(this.game.timer.time > this.game.bestTime) {
-                            this.game.bestTime = this.game.timer.time;
-                        }
-                        this.game.totalTimeRan += parseFloat(this.game.timer.time.toFixed(3));
+                        this.game.gameOver();
                     }
                     this.game.intervalSelector = this.game.intervalSpeeds.length - 1;
                 }

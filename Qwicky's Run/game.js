@@ -4,9 +4,7 @@ import InputHandler from "./input.js";
 import Character from "./character.js";
 import Background from "./background.js";
 import Bar from "./bar.js";
-import Timer from "./timer.js"
-
-//import { buildLevel, level1, level2 } from "./levels.js";
+import Timer from "./timer.js";
 
 const GAMESTATE = {
     COUNTDOWN: 1,
@@ -17,7 +15,8 @@ const GAMESTATE = {
     LEADERBOARDS: 6,
     ACHIEVEMENTS: 7,
     STATS: 8,
-    CREDITS: 9, 
+    CREDITS: 9,
+    SAVESCORE: 10,
 };
 
 let reachedEndOfSong = false;
@@ -55,7 +54,7 @@ export default class Game {
         this.lives = 3;
         this.level = 1;
         this.levelUpTime = 0;
-        this.lastLife = false; //Used to start heat beat sound and ensure it only starts once
+        this.lastLife = false; //Used to start heart beat sound and ensure it only starts once
 
         //Music and sounds
         this.gameTheme = document.getElementById("gameTheme");
@@ -66,20 +65,16 @@ export default class Game {
         this.gameTheme.volume = 0;
         this.heartBeat.volume = 0;
         this.countdown.volume = 0;
-        this.countdown.play();
-        this.countdown.addEventListener('ended', function() {
-            this.volume = 0;
-            this.currentTime = 0;
-            this.play();
-        }, false);
 
         //Menu controls
         this.menuOptions = 6;
         this.selectedItem = 1;
-        this.menuArray = ["Play", "Instructions/Controls", "Leaderboards", "Achievements", "Stats", "Credits"];
+        this.menuArray = ["Play", "Instructions/Controls", "Leaderboard", "Achievements", "Stats", "Credits"];
         this.itemYPosition;
         this.topItemPosition = 200;
-
+        this.button1 = document.getElementById("buttonLeft");
+        this.button2 = document.getElementById("buttonRight");
+        
 
         //Initialize localStorage for stats and achievement unlocks
         if(localStorage.getItem("15seconds") === null) {
@@ -116,7 +111,7 @@ export default class Game {
             localStorage.setItem("averageTimeRan", "0.000");
         }
         
-        
+        //local statistics
         this.colorSwapCount = parseInt(localStorage.getItem("colorSwapCount"));
         this.gravityFlipCount = parseInt(localStorage.getItem("gravityFlipCount"));
         this.gamesPlayed = parseInt(localStorage.getItem("gamesPlayed"));
@@ -124,6 +119,7 @@ export default class Game {
         this.totalTimeRan = parseFloat(localStorage.getItem("totalTimeRan"));
         this.averageTimeRan = parseFloat(localStorage.getItem("averageTimeRan"));
 
+        //badges and achievements
         this.fifteenSecondsBadge;
         this.thirtySecondsBadge;
         this.sixtySecondsBadge;
@@ -139,6 +135,17 @@ export default class Game {
         localStorage.getItem("90seconds") === "true" ? this.ninetySecondsBadge = document.getElementById("90SecondsBadge") : this.ninetySecondsBadge = document.getElementById("90SecondsBadgeLocked");
         localStorage.getItem("endOfSong") === "true" ? this.endOfSongBadge = document.getElementById("endOfSongBadge") : this.endOfSongBadge = document.getElementById("endOfSongBadgeLocked");
         parseInt(localStorage.getItem("colorSwapCount")) >= 100000 ? this.colorBadge = document.getElementById("colorBadge") : this.colorBadge = document.getElementById("colorBadgeLocked");
+
+        //leaderboard
+
+        this.leaderboardLoaded = false;
+        this.leaderboard;
+        this.scores = [];
+        
+        this.loadAttempts = 0;
+        this.tooSlow = false; //If the game runs too slowly, prevent the player from saving their score
+        this.tooSlowChain = 0;
+        this.userName;
     }
 
     start() {
@@ -164,6 +171,20 @@ export default class Game {
             this.currentTime = 0;
             this.play();
         }, false);
+        this.tooSlow = false;
+        this.userName = undefined;
+    }
+
+    gameOver() {
+        this.button1.src = "assets/images/enterButton.png";
+        this.button2.src = "assets/images/selectButton.png";
+        this.timer.stop();
+        this.gamesPlayed ++;
+        this.averageTimeRan = (parseFloat(this.timer.time.toFixed(3)) + this.totalTimeRan) / this.gamesPlayed;
+        if(this.timer.time > this.bestTime) {
+            this.bestTime = this.timer.time;
+        }
+        this.totalTimeRan += parseFloat(this.timer.time.toFixed(3));
     }
 
     reset() {
@@ -177,10 +198,47 @@ export default class Game {
         this.achievementTime = 0;
     }
 
+    updateInterval() {
+        this.intervalSelector = Math.floor(Math.random() * (this.intervalSpeeds.length - 0)) + 0;
+    }
+
+    /*loadLeaderboard() {
+        if(this.loadAttempts >= 10) return;
+        fetch('/scores')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("HTTP error " + response.status);
+            }
+            return response.json();
+        })
+        .then(json => {
+            this.leaderboard = json;
+            this.leaderboardLoaded = true;
+            this.scores = this.leaderboard.Scores;
+        })
+        .catch(()=> {
+            console.log("Error");
+            this.loadAttempts ++;
+            
+        })
+    }*/
+
     update(deltaTime) {
-        
         if(this.gamestate === GAMESTATE.RUNNING) {
             
+            if(!this.tooSlow) { //Perform a check on the game's update speed (FPS)
+                if(deltaTime > 18) { //Game is running at less than 55fps
+                    this.tooSlowChain ++;
+                }
+                else {
+                    this.tooSlowChain = 0;
+                }
+    
+                if(this.tooSlowChain > 60) { //less than 55fps for 120 cycles in a row
+                    this.tooSlow = true; //Player is running the game too slowly and has an unfair advantage. Prevent saving to leaderboard
+                    console.log("Too slow!");
+                }
+            }
             //Game updates
             if(this.lives < 1) { //Cause a game over
                 this.gameTheme.pause();
@@ -188,6 +246,9 @@ export default class Game {
                 this.heartBeat.pause();
                 this.heartBeat.currentTime = 0;
                 this.gamestate = GAMESTATE.GAMEOVER;
+                this.menuArray = ["Save Score", "Main Menu"];
+                this.menuOptions = 2;
+                this.topItemPosition = 300;
                 return;
             }
 
@@ -239,6 +300,8 @@ export default class Game {
             if(this.timer.time >= 15 && localStorage.getItem("15seconds") === "false") {
                 localStorage.setItem("15seconds", "true");
                 this.achievementTime = this.loopCount;
+                console.log(this.achievementTime);
+                console.log(this.loopCount);
                 this.achievementUnlocked = 0;
                 this.fifteenSecondsBadge = document.getElementById("15SecondsBadge");
             }
@@ -273,8 +336,8 @@ export default class Game {
             this.bars.forEach((bar) => {
                 bar.update(deltaTime);
             });
-            this.character.update(deltaTime);
             this.bars = this.bars.filter(bar => bar.position.x + bar.width > 0);
+            this.character.update(deltaTime);
             
             if(this.barUpdateTime % (this.intervalSpeeds[this.intervalSelector] * this.character.invincibilityState) === 0) {
                 this.character.invincibilityState = 1;
@@ -301,9 +364,11 @@ export default class Game {
             
         }
 
-        if(this.gamestate === GAMESTATE.MENU) {
-    
-        }
+        /*if(this.gamestate === GAMESTATE.LEADERBOARDS) {
+            if(!this.leaderboardLoaded) {
+                this.loadLeaderboard();
+            }
+        }*/
 
         if(this.gamestate === GAMESTATE.ACHIEVEMENTS) {
             localStorage.getItem("15seconds") === "true" ? this.fifteenSecondsBadge = document.getElementById("15SecondsBadge") : this.fifteenSecondsBadge = document.getElementById("15SecondsBadgeLocked");
@@ -313,10 +378,9 @@ export default class Game {
             localStorage.getItem("endOfSong") === "true" ? this.endOfSongBadge = document.getElementById("endOfSongBadge") : this.endOfSongBadge = document.getElementById("endOfSongBadgeLocked");
             parseInt(localStorage.getItem("colorSwapCount")) >= 100000 ? this.colorBadge = document.getElementById("colorBadge") : this.colorBadge = document.getElementById("colorBadgeLocked");
         }
-    }
-
-    updateInterval() {
-        this.intervalSelector = Math.floor(Math.random() * (this.intervalSpeeds.length - 0)) + 0;
+        if(this.gamestate === GAMESTATE.SAVESCORE) {
+            
+        }
     }
 
     preRender(ctx) {
@@ -325,6 +389,8 @@ export default class Game {
         this.bars.forEach((bar) => bar.draw(ctx));
 
         if(this.gamestate === GAMESTATE.COUNTDOWN) {
+            this.button1.src = "assets/images/swapColorButton.png";
+            this.button2.src = "assets/images/flipGravityButton.png";
             if(this.loopCount >= 0 && this.loopCount < 20) {
             ctx.drawImage(document.getElementById("countdown3"), this.gameWidth / 2 - 25, this.gameHeight / 2 - 100, 50, 100);
             }
@@ -345,6 +411,9 @@ export default class Game {
             } 
         }
         if(this.gamestate === GAMESTATE.RUNNING) {
+            /*ctx.rect(0, 0, 800, 600);
+            ctx.fillStyle = 'rgba(0,0,0,0.5)';
+            ctx.fill();*/ //Throttle to test lower FPS
             this.timer.draw(ctx);
             for(let i = 0; i < this.lives; i++) {
                 if(this.lives === 1) {
@@ -362,21 +431,19 @@ export default class Game {
                 }
             }
             if(this.loopCount - this.levelUpTime < 120 && this.levelUpTime !== 0) {
-                ctx.drawImage(document.getElementById("levelUp"), this.gameWidth / 2 - 112.5, 100, 225, 100);
+                ctx.drawImage(document.getElementById("levelUp"), this.gameWidth / 2 - 113, 100, 225, 100);
             }
         }
 
         if(this.gamestate === GAMESTATE.GAMEOVER) {
-            ctx.fillStyle = "rgba(0,0,0,0.5)";
-            ctx.fillRect(0,0,this.gameWidth, this.gameHeight);
-            ctx.drawImage(document.getElementById("gameLogo"),  150, 25, 500, 150);
-
-            ctx.font = "30px Arial";
+            this.setUpMenu(ctx);
+            ctx.font = "30px Arial, sans-serif";
             ctx.fillStyle = "white";
             ctx.textAlign = "center";
-            ctx.fillText('Game over', this.gameWidth /2, this.gameHeight / 2);
-            ctx.fillText(`You survived for ${this.timer.time.toFixed(3)} seconds`, this.gameWidth /2, this.gameHeight / 2 + 40);
-            ctx.fillText('Press ENTER to return to main menu', this.gameWidth /2, this.gameHeight / 2 + 80);
+            ctx.fillText('Game over', this.gameWidth /2, 200);
+            ctx.fillText(`You survived for ${this.timer.time.toFixed(3)} seconds`, this.gameWidth /2, 240);
+            ctx.drawImage(document.getElementById("rightArrow"), this.gameWidth / 2 - 275, 250 + (50 * this.selectedItem), 100, 40);
+            ctx.drawImage(document.getElementById("leftArrow"), this.gameWidth / 2 + 175, 250 + (50 * this.selectedItem), 100, 40);
         }
 
         else if(this.gamestate === GAMESTATE.MENU) {
@@ -390,7 +457,7 @@ export default class Game {
             ctx.fillStyle = "white";
             ctx.fillRect(150,75,500,400);
             ctx.fillStyle = "black";
-            ctx.font = "20px Arial";
+            ctx.font = "20px Arial, sans-serif";
             ctx.textAlign = "left";
             ctx.fillText("Space Bar: Swap Color", 160, 120 );
             ctx.fillText("Up and Down arrows: Flip Gravity", 160, 160);
@@ -404,27 +471,45 @@ export default class Game {
             this.setUpMenu(ctx);
             ctx.fillStyle = "white";
             ctx.fillRect(150,75,500,400);
-            ctx.font = "30px Arial";
+            ctx.font = "25px Lucida Console, monospace, sans-serif";
             ctx.fillStyle = "black";
-            ctx.textAlign = "center";
-            ctx.fillText('Coming soon!', this.gameWidth /2, this.gameHeight / 2);
+            ctx.fillText("Coming Soon!", this.gameWidth / 2, this.gameHeight / 2);
+            /*ctx.textAlign = "left";
+            
+            if(this.leaderboardLoaded) {
+                let topPosition = 200;
+                let loop = 0;
+                this.scores.forEach(score => {
+                    loop ++;
+                    ctx.textAlign = "left";
+                    ctx.fillText(`#${loop} ${score.Name}`, 180, topPosition);
+                    ctx.textAlign = "right"
+                    ctx.fillText(`${score.Time} seconds`, 625, topPosition, 200);
+                    topPosition += 40;
+                });
+            }
+            else if(this.loadAttempts >= 10) {
+                ctx.textAlign = "center";
+                ctx.fillText('Unable to load leaderboard', this.gameWidth /2, this.gameHeight / 2);
+            }
+            */
         }
         else if(this.gamestate === GAMESTATE.ACHIEVEMENTS) {
             this.setUpMenu(ctx);
             ctx.fillStyle = "white";
             ctx.fillRect(this.gameWidth / 2 - 250,75,500,400);
             ctx.drawImage(this.fifteenSecondsBadge, 160, 100, 125, 125);
-            ctx.drawImage(this.thirtySecondsBadge, this.gameWidth/2 - 62.5, 100, 125, 125);
+            ctx.drawImage(this.thirtySecondsBadge, this.gameWidth/2 - 62, 100, 125, 125);
             ctx.drawImage(this.sixtySecondsBadge, 510, 100, 125, 125);
             ctx.drawImage(this.ninetySecondsBadge, 160, 325, 125, 125);
-            ctx.drawImage(this.endOfSongBadge, this.gameWidth/2 - 62.5, 325, 125, 125);
+            ctx.drawImage(this.endOfSongBadge, this.gameWidth/2 - 62, 325, 125, 125);
             ctx.drawImage(this.colorBadge, 510, 325, 125, 125);
         }
         else if(this.gamestate === GAMESTATE.STATS) {
             this.setUpMenu(ctx);
             ctx.fillStyle = "white";
             ctx.fillRect(150,75,500,400);
-            ctx.font = "20px Arial";
+            ctx.font = "20px Arial, sans-serif";
             ctx.fillStyle = "black";
             ctx.textAlign = "left";
             ctx.fillText(`Games Played: ${this.gamesPlayed}`, 175, 120);
@@ -439,37 +524,66 @@ export default class Game {
             ctx.fillStyle = "white";
             ctx.fillRect(150,75,500,400);
             ctx.fillStyle = "black";
-            ctx.font = "18px Arial";
+            ctx.font = "18px Arial, sans-serif";
             ctx.textAlign = "left";
             ctx.fillText("Game Creator: Richard Rennehan", 160, 120, 400); 
             ctx.fillText("Game Theme: Ukigumo (By Hige Driver)", 160, 160, 400);
             ctx.fillText("I highly recommend you check the rest of", 160, 400);
-            ctx.fillText("Hige Driver's music. Please consider supporting his work!", 160, 440);    
-            
+            ctx.fillText("Hige Driver's music. Please consider supporting his work!", 160, 440);
         }
-
+        else if(this.gamestate === GAMESTATE.SAVESCORE) {
+            this.setUpMenu(ctx);
+            ctx.fillStyle = "white";
+            ctx.fillRect(150,75,500,400);
+            ctx.fillStyle = "black";
+            ctx.font = "20px Arial, sans-serif";
+            ctx.fillText("Work in progress", this.gameWidth/2, this.gameHeight/2);
+            /*
+            ctx.textAlign = "left";
+            if(this.tooSlow) {
+                ctx.fillText("Your game ran too slowly. This gives you an unfair", 160, 120);
+                ctx.fillText("advantage. To ensure the leaderboards are accurate", 160, 140);
+                ctx.fillText("you are unable to save your score.", 160, 160);
+                ctx.fillText("To speed up the game, try closing other applications.", 160, 200);
+                ctx.fillText("If that doesn't work, you may need a faster computer.", 160, 220);
+            }
+            else {
+                if(this.userName === undefined) {
+                    this.userName = prompt("Enter your name");
+                }
+                else if(this.userName === "" || this.userName === null) {
+                    ctx.fillText(`Your score has not been saved.`, 160, 120);
+                }
+                else if(this.userName !== undefined && this.userName !== "" && this.userName.length < 12) {
+                    ctx.fillText(`Congrats, ${this.userName}! Your score of ${this.timer.time} has been saved.`, 160, 120);
+                }
+                else if(this.userName.length >= 12) {
+                    this.userName = prompt("Name must be under 12 characters");
+                }
+            }*/
+        }
         if(this.loopCount - this.achievementTime < 240 && this.achievementTime !== 0) {
             ctx.fillStyle = "white";
             ctx.fillRect(500,5,275,65);
             switch(this.achievementUnlocked) {
                 case 0:
-                    ctx.drawImage(this.fifteenSecondsBadge, 505, 7.5, 60, 60);
+                    ctx.drawImage(this.fifteenSecondsBadge, 505, 7, 60, 60);
                     break;
                 case 1:
-                    ctx.drawImage(this.thirtySecondsBadge, 505, 7.5, 60, 60);
+                    ctx.drawImage(this.thirtySecondsBadge, 505, 7, 60, 60);
                     break;
                 case 2:
-                    ctx.drawImage(this.sixtySecondsBadge, 505, 7.5, 60, 60);
+                    ctx.drawImage(this.sixtySecondsBadge, 505, 7, 60, 60);
                     break;
                 case 3:
-                    ctx.drawImage(this.ninetySecondsBadge, 505, 7.5, 60, 60);
+                    ctx.drawImage(this.ninetySecondsBadge, 505, 7, 60, 60);
                     break;
                 case 4:
-                    ctx.drawImage(this.endOfSongBadge, 505, 7.5, 60, 60);
+                    ctx.drawImage(this.endOfSongBadge, 505, 7, 60, 60);
                     break;
             }
             ctx.fillStyle = "black"
-            ctx.font = "18px Arial";
+            ctx.font = "18px Arial, sans-serif";
             ctx.textAlign = "left";
             ctx.fillText("Achievement Unlocked!", 575, 40); 
         }
@@ -480,7 +594,6 @@ export default class Game {
         ctx.fillRect(0,0,this.gameWidth, this.gameHeight);
 
         this.itemYPosition = this.topItemPosition;
-
         for(let i = 1; i <= this.menuOptions; i++) {
             ctx.fillStyle = "white";
             if(i === this.selectedItem) {

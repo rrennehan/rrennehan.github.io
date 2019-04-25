@@ -15,6 +15,8 @@
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="msapplication-config" content="assets\images\favicon/browserconfig.xml">
     <meta name="theme-color" content="#ffffff">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"> -->
+    <meta name="viewport" content="user-scalable=0">
     <link rel="stylesheet" href="main.css">
 
 </head>
@@ -71,6 +73,16 @@
     <div id="blue"></div>
     <canvas id="gameScreen" width="800" height="600" ></canvas>
 
+    <div id="button1">
+        <img id="buttonLeft" src="assets/images/enterButton.png">
+        <!--<img id="enterButton" src="assets/images/enterButton.png"> -->
+    </div>
+    <div id="button2"> 
+        <img id="buttonRight" src="assets/images/selectButton.png">
+        <!---<img id="selectButton" src="assets/images/selectButton.png">-->
+    </div>
+    
+    <script type='application/javascript' src='fastclick.js'></script>
     <script type="module" src="main.js"></script>
 </body>
 
