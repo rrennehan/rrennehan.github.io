@@ -67,9 +67,9 @@ export default class Game {
         this.countdown.volume = 0;
 
         //Menu controls
-        this.menuOptions = 6;
+        this.menuOptions = 5;
         this.selectedItem = 1;
-        this.menuArray = ["Play", "Instructions/Controls", "Leaderboard", "Achievements", "Stats", "Credits"];
+        this.menuArray = ["Play", "Instructions/Controls",/* "Leaderboard",*/ "Achievements", "Stats", "Credits"];
         this.itemYPosition;
         this.topItemPosition = 200;
         this.button1 = document.getElementById("buttonLeft");
@@ -136,7 +136,7 @@ export default class Game {
         localStorage.getItem("endOfSong") === "true" ? this.endOfSongBadge = document.getElementById("endOfSongBadge") : this.endOfSongBadge = document.getElementById("endOfSongBadgeLocked");
         parseInt(localStorage.getItem("colorSwapCount")) >= 100000 ? this.colorBadge = document.getElementById("colorBadge") : this.colorBadge = document.getElementById("colorBadgeLocked");
 
-        //leaderboard
+        /*//leaderboard
 
         this.leaderboardLoaded = false;
         this.leaderboard;
@@ -145,7 +145,7 @@ export default class Game {
         this.loadAttempts = 0;
         this.tooSlow = false; //If the game runs too slowly, prevent the player from saving their score
         this.tooSlowChain = 0;
-        this.userName;
+        this.userName;*/
     }
 
     start() {
@@ -246,8 +246,8 @@ export default class Game {
                 this.heartBeat.pause();
                 this.heartBeat.currentTime = 0;
                 this.gamestate = GAMESTATE.GAMEOVER;
-                this.menuArray = ["Save Score", "Main Menu"];
-                this.menuOptions = 2;
+                this.menuArray = ["Main Menu"];
+                this.menuOptions = 1;
                 this.topItemPosition = 300;
                 return;
             }
@@ -378,9 +378,9 @@ export default class Game {
             localStorage.getItem("endOfSong") === "true" ? this.endOfSongBadge = document.getElementById("endOfSongBadge") : this.endOfSongBadge = document.getElementById("endOfSongBadgeLocked");
             parseInt(localStorage.getItem("colorSwapCount")) >= 100000 ? this.colorBadge = document.getElementById("colorBadge") : this.colorBadge = document.getElementById("colorBadgeLocked");
         }
-        if(this.gamestate === GAMESTATE.SAVESCORE) {
+        /*if(this.gamestate === GAMESTATE.SAVESCORE) {
             
-        }
+        }*/
     }
 
     preRender(ctx) {
@@ -531,15 +531,15 @@ export default class Game {
             ctx.fillText("I highly recommend you check the rest of", 160, 400);
             ctx.fillText("Hige Driver's music. Please consider supporting his work!", 160, 440);
         }
-        else if(this.gamestate === GAMESTATE.SAVESCORE) {
+        /*else if(this.gamestate === GAMESTATE.SAVESCORE) {
             this.setUpMenu(ctx);
             ctx.fillStyle = "white";
             ctx.fillRect(150,75,500,400);
             ctx.fillStyle = "black";
             ctx.font = "20px Arial, sans-serif";
             ctx.fillText("Work in progress", this.gameWidth/2, this.gameHeight/2);
-            /*
             ctx.textAlign = "left";
+
             if(this.tooSlow) {
                 ctx.fillText("Your game ran too slowly. This gives you an unfair", 160, 120);
                 ctx.fillText("advantage. To ensure the leaderboards are accurate", 160, 140);
@@ -560,8 +560,8 @@ export default class Game {
                 else if(this.userName.length >= 12) {
                     this.userName = prompt("Name must be under 12 characters");
                 }
-            }*/
-        }
+            }
+        } */
         if(this.loopCount - this.achievementTime < 240 && this.achievementTime !== 0) {
             ctx.fillStyle = "white";
             ctx.fillRect(500,5,275,65);

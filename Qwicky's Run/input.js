@@ -80,28 +80,28 @@ export default class InputHandler {
                         game.menuArray = ["Hit ENTER to return"];
                         game.topItemPosition = 475; 
                     }
-                    else if(game.selectedItem === 3) { //Leaderboard
+                    /*else if(game.selectedItem === 3) { //Leaderboard
                         game.gamestate = GAMESTATE.LEADERBOARDS;
                         game.menuOptions = 1;
                         game.selectedItem = 1;
                         game.menuArray = ["Hit ENTER to return"];
                         game.topItemPosition = 475; 
-                    }
-                    else if(game.selectedItem === 4) { //Achievements
+                    }*/
+                    else if(game.selectedItem === 3) { //Achievements
                         game.gamestate = GAMESTATE.ACHIEVEMENTS;
                         game.menuOptions = 1;
                         game.selectedItem = 1;
                         game.menuArray = ["Hit ENTER to return"];
                         game.topItemPosition = 475; 
                     }
-                    else if(game.selectedItem === 5) { //Stats
+                    else if(game.selectedItem === 4) { //Stats
                         game.gamestate = GAMESTATE.STATS;
                         game.menuOptions = 1;
                         game.selectedItem = 1;
                         game.menuArray = ["Hit ENTER to return"];
                         game.topItemPosition = 475; 
                     }
-                    else if(game.selectedItem === 6) { //Credits
+                    else if(game.selectedItem === 5) { //Credits
                         game.gamestate = GAMESTATE.CREDITS;
                         game.menuOptions = 1;
                         game.selectedItem = 1;
@@ -110,73 +110,73 @@ export default class InputHandler {
                     } 
                 }
                 else if(game.gamestate === GAMESTATE.GAMEOVER) {
-                    if(game.selectedItem === 1) { //Save score
+                    if(game.selectedItem === 1) { //Main Menu
+                        game.gamestate = GAMESTATE.MENU;
+                        game.reset();
+                        game.lives = 3;
+                        game.menuOptions = 5;
+                        game.selectedItem = 1;
+                        game.menuArray = ["Play", "Instructions/Controls",/* "Leaderboard",*/ "Achievements", "Stats", "Credits"];
+                        game.topItemPosition = 200; 
+                        game.countdown.volume = 0;
+                        game.countdown.play();
+                    }
+                    /*else if(game.selectedItem === 2) { //Save Score
                         game.gamestate = GAMESTATE.SAVESCORE;
                         game.menuOptions = 1;
                         game.selectedItem = 1;
                         game.menuArray = ["Hit ENTER to return"];
                         game.topItemPosition = 475;
-                    }
-                    else if(game.selectedItem === 2) { //Main Menu
-                        game.gamestate = GAMESTATE.MENU;
-                        game.reset();
-                        game.lives = 3;
-                        game.menuOptions = 6;
-                        game.selectedItem = 1;
-                        game.menuArray = ["Play", "Instructions/Controls", "Leaderboard", "Achievements", "Stats", "Credits"];
-                        game.topItemPosition = 200; 
-                        game.countdown.volume = 0;
-                        game.countdown.play();
-                    }
+                    }*/
                     
                 }
                 else if(game.gamestate === GAMESTATE.INSTRUCTIONS) {
                     game.gamestate = GAMESTATE.MENU;
-                    game.menuOptions = 6;
+                    game.menuOptions = 5;
                     game.selectedItem = 2;
-                    game.menuArray = ["Play", "Instructions/Controls", "Leaderboard", "Achievements", "Stats", "Credits"];
+                    game.menuArray = ["Play", "Instructions/Controls",/* "Leaderboard",*/ "Achievements", "Stats", "Credits"];
                     game.topItemPosition = 200; 
                 }
-                else if(game.gamestate === GAMESTATE.LEADERBOARDS) {
+                /*else if(game.gamestate === GAMESTATE.LEADERBOARDS) {
                     game.gamestate = GAMESTATE.MENU;
                     game.menuOptions = 6;
                     game.selectedItem = 3;
-                    game.menuArray = ["Play", "Instructions/Controls", "Leaderboard", "Achievements", "Stats", "Credits"];
+                    game.menuArray = ["Play", "Instructions/Controls","Leaderboard", "Achievements", "Stats", "Credits"];
                     game.topItemPosition = 200; 
                     game.leaderboardLoaded = false;
                     game.leaderboardJSON = undefined;
                     game.loadAttempts = 0;
                     game.scores = undefined;
-                }
+                }*/
                 else if(game.gamestate === GAMESTATE.ACHIEVEMENTS) {
                     game.gamestate = GAMESTATE.MENU;
-                    game.menuOptions = 6;
-                    game.selectedItem = 4;
-                    game.menuArray = ["Play", "Instructions/Controls", "Leaderboard", "Achievements", "Stats", "Credits"];
+                    game.menuOptions = 5;
+                    game.selectedItem = 3;
+                    game.menuArray = ["Play", "Instructions/Controls",/* "Leaderboard",*/ "Achievements", "Stats", "Credits"];
                     game.topItemPosition = 200; 
                 }
                 else if(game.gamestate === GAMESTATE.STATS) {
                     game.gamestate = GAMESTATE.MENU;
-                    game.menuOptions = 6;
-                    game.selectedItem = 5;
-                    game.menuArray = ["Play", "Instructions/Controls", "Leaderboard", "Achievements", "Stats", "Credits"];
+                    game.menuOptions = 5;
+                    game.selectedItem = 4;
+                    game.menuArray = ["Play", "Instructions/Controls",/* "Leaderboard",*/ "Achievements", "Stats", "Credits"];
                     game.topItemPosition = 200; 
                 }
                 else if(game.gamestate === GAMESTATE.CREDITS) {
                     game.gamestate = GAMESTATE.MENU;
-                    game.menuOptions = 6;
-                    game.selectedItem = 6;
-                    game.menuArray = ["Play", "Instructions/Controls", "Leaderboard", "Achievements", "Stats", "Credits"];
+                    game.menuOptions = 5;
+                    game.selectedItem = 5;
+                    game.menuArray = ["Play", "Instructions/Controls",/* "Leaderboard",*/ "Achievements", "Stats", "Credits"];
                     game.topItemPosition = 200; 
                 }
-                else if(game.gamestate === GAMESTATE.SAVESCORE) {
+                /*else if(game.gamestate === GAMESTATE.SAVESCORE) {
                     game.gamestate = GAMESTATE.MENU;
                     game.reset();
                     game.menuOptions = 6;
                     game.selectedItem = 6;
                     game.menuArray = ["Play", "Instructions/Controls", "Leaderboard", "Achievements", "Stats", "Credits"];
                     game.topItemPosition = 200;
-                } 
+                }*/
                 break;
             }
         });
@@ -203,28 +203,28 @@ export default class InputHandler {
                         game.menuArray = ["Hit ENTER to return"];
                         game.topItemPosition = 475; 
                     }
-                    else if(game.selectedItem === 3) { //Leaderboard
+                    /*else if(game.selectedItem === 3) { //Leaderboard
                         game.gamestate = GAMESTATE.LEADERBOARDS;
                         game.menuOptions = 1;
                         game.selectedItem = 1;
                         game.menuArray = ["Hit ENTER to return"];
                         game.topItemPosition = 475; 
-                    }
-                    else if(game.selectedItem === 4) { //Achievements
+                    }*/
+                    else if(game.selectedItem === 3) { //Achievements
                         game.gamestate = GAMESTATE.ACHIEVEMENTS;
                         game.menuOptions = 1;
                         game.selectedItem = 1;
                         game.menuArray = ["Hit ENTER to return"];
                         game.topItemPosition = 475; 
                     }
-                    else if(game.selectedItem === 5) { //Stats
+                    else if(game.selectedItem === 4) { //Stats
                         game.gamestate = GAMESTATE.STATS;
                         game.menuOptions = 1;
                         game.selectedItem = 1;
                         game.menuArray = ["Hit ENTER to return"];
                         game.topItemPosition = 475; 
                     }
-                    else if(game.selectedItem === 6) { //Credits
+                    else if(game.selectedItem === 5) { //Credits
                         game.gamestate = GAMESTATE.CREDITS;
                         game.menuOptions = 1;
                         game.selectedItem = 1;
@@ -233,34 +233,35 @@ export default class InputHandler {
                     } 
                 }
                 else if(game.gamestate === GAMESTATE.GAMEOVER) {
-                    if(game.selectedItem === 1) { //Save score
+                    if(game.selectedItem === 1) { //Main Menu
+                        game.gamestate = GAMESTATE.MENU;
+                        game.reset();
+                        game.lives = 3;
+                        game.menuOptions = 5;
+                        game.selectedItem = 1;
+                        game.menuArray = ["Play", "Instructions/Controls",/* "Leaderboard",*/ "Achievements", "Stats", "Credits"];
+                        game.topItemPosition = 200; 
+                        game.countdown.volume = 0;
+                        game.countdown.play();
+                    }
+
+                    /*else if(game.selectedItem === 2) { //Save score
                         game.gamestate = GAMESTATE.SAVESCORE;
                         game.menuOptions = 1;
                         game.selectedItem = 1;
                         game.menuArray = ["Hit ENTER to return"];
                         game.topItemPosition = 475;
-                    }
-                    else if(game.selectedItem === 2) { //Main Menu
-                        game.gamestate = GAMESTATE.MENU;
-                        game.reset();
-                        game.lives = 3;
-                        game.menuOptions = 6;
-                        game.selectedItem = 1;
-                        game.menuArray = ["Play", "Instructions/Controls", "Leaderboard", "Achievements", "Stats", "Credits"];
-                        game.topItemPosition = 200; 
-                        game.countdown.volume = 0;
-                        game.countdown.play();
-                    }
+                    }*/
                     
                 }
                 else if(game.gamestate === GAMESTATE.INSTRUCTIONS) {
                     game.gamestate = GAMESTATE.MENU;
-                    game.menuOptions = 6;
+                    game.menuOptions = 5;
                     game.selectedItem = 2;
-                    game.menuArray = ["Play", "Instructions/Controls", "Leaderboard", "Achievements", "Stats", "Credits"];
+                    game.menuArray = ["Play", "Instructions/Controls",/* "Leaderboard",*/ "Achievements", "Stats", "Credits"];
                     game.topItemPosition = 200; 
                 }
-                else if(game.gamestate === GAMESTATE.LEADERBOARDS) {
+                /*else if(game.gamestate === GAMESTATE.LEADERBOARDS) {
                     game.gamestate = GAMESTATE.MENU;
                     game.menuOptions = 6;
                     game.selectedItem = 3;
@@ -270,36 +271,37 @@ export default class InputHandler {
                     game.leaderboardJSON = undefined;
                     game.loadAttempts = 0;
                     game.scores = undefined;
-                }
+                }*/
                 else if(game.gamestate === GAMESTATE.ACHIEVEMENTS) {
                     game.gamestate = GAMESTATE.MENU;
-                    game.menuOptions = 6;
-                    game.selectedItem = 4;
-                    game.menuArray = ["Play", "Instructions/Controls", "Leaderboard", "Achievements", "Stats", "Credits"];
+                    game.menuOptions = 5;
+                    game.selectedItem = 3;
+                    game.menuArray = ["Play", "Instructions/Controls",/* "Leaderboard",*/ "Achievements", "Stats", "Credits"];
                     game.topItemPosition = 200; 
                 }
                 else if(game.gamestate === GAMESTATE.STATS) {
                     game.gamestate = GAMESTATE.MENU;
-                    game.menuOptions = 6;
-                    game.selectedItem = 5;
-                    game.menuArray = ["Play", "Instructions/Controls", "Leaderboard", "Achievements", "Stats", "Credits"];
+                    game.menuOptions = 5;
+                    game.selectedItem = 4;
+                    game.menuArray = ["Play", "Instructions/Controls",/* "Leaderboard",*/ "Achievements", "Stats", "Credits"];
                     game.topItemPosition = 200; 
                 }
                 else if(game.gamestate === GAMESTATE.CREDITS) {
                     game.gamestate = GAMESTATE.MENU;
-                    game.menuOptions = 6;
-                    game.selectedItem = 6;
-                    game.menuArray = ["Play", "Instructions/Controls", "Leaderboard", "Achievements", "Stats", "Credits"];
+                    game.menuOptions = 5;
+                    game.selectedItem = 5;
+                    game.menuArray = ["Play", "Instructions/Controls",/* "Leaderboard",*/ "Achievements", "Stats", "Credits"];
                     game.topItemPosition = 200; 
                 }
-                else if(game.gamestate === GAMESTATE.SAVESCORE) {
+                /*else if(game.gamestate === GAMESTATE.SAVESCORE) {
                     game.gamestate = GAMESTATE.MENU;
                     game.reset();
                     game.menuOptions = 6;
                     game.selectedItem = 6;
                     game.menuArray = ["Play", "Instructions/Controls", "Leaderboard", "Achievements", "Stats", "Credits"];
                     game.topItemPosition = 200;
-                } 
+                
+                } */ 
                 });
                 button2.addEventListener("click", ( )=> {
                     if(game.gamestate === GAMESTATE.RUNNING && 
