@@ -246,9 +246,9 @@ export default class Game {
                 this.heartBeat.pause();
                 this.heartBeat.currentTime = 0;
                 this.gamestate = GAMESTATE.GAMEOVER;
-                this.menuArray = ["Main Menu"];
+                this.menuArray = ["Hit ENTER to return"];
                 this.menuOptions = 1;
-                this.topItemPosition = 300;
+                this.topItemPosition = 350;
                 return;
             }
 
@@ -439,11 +439,14 @@ export default class Game {
             this.setUpMenu(ctx);
             ctx.font = "30px Arial, sans-serif";
             ctx.fillStyle = "white";
+            ctx.fillRect(150,150,500,200);
+            ctx.fillStyle = "black";
             ctx.textAlign = "center";
             ctx.fillText('Game over', this.gameWidth /2, 200);
-            ctx.fillText(`You survived for ${this.timer.time.toFixed(3)} seconds`, this.gameWidth /2, 240);
-            ctx.drawImage(document.getElementById("rightArrow"), this.gameWidth / 2 - 275, 250 + (50 * this.selectedItem), 100, 40);
-            ctx.drawImage(document.getElementById("leftArrow"), this.gameWidth / 2 + 175, 250 + (50 * this.selectedItem), 100, 40);
+            ctx.fillText(`You survived for ${this.timer.time.toFixed(3)} seconds`, this.gameWidth /2, 320);
+            if (this.timer.time >= localStorage.bestTime) {
+                ctx.fillText('(New record!)', this.gameWidth /2, 280);
+            }
         }
 
         else if(this.gamestate === GAMESTATE.MENU) {
