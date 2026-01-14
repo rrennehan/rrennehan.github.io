@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>Qwicky's Run</title>
+    <meta charset = "UTF-8" />
+
+    <link rel="apple-touch-icon" sizes="180x180" href="assets\images\favicon\apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets\images\favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets\images\favicon/favicon-16x16.png">
+    <link rel="manifest" href="assets\images\favicon/site.webmanifest">
+    <link rel="mask-icon" href="assets\images\favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="assets\images\favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="msapplication-config" content="assets\images\favicon/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"> -->
+    <meta name="viewport" content="user-scalable=0">
+    <link rel="stylesheet" href="main.css">
+
+</head>
+
+<body> 
+    <img id="background" src="assets/images/background.png">
+    <img id="window" src="assets/images/window.png">
+    
+    <img id="gameLogo" src="assets/images/gameLogo.png">
+    <img id="heart" src="assets/images/heart.png">
+
+    <img id="spikes" src="assets/images/spikes.png">
+    <img id="blueBar" src="assets/images/blueBar.png">
+    <img id="orangeBar" src="assets/images/orangeBar.png">
+
+    <img id="countdown3" src="assets/images/countdown3.png">
+    <img id="countdown2" src="assets/images/countdown2.png">
+    <img id="countdown1" src="assets/images/countdown1.png">
+    <img id="countdownGo" src="assets/images/countdownGo.png">
+    <img id="levelUp" src="assets/images/levelUp.png">
+
+    <img id="rightArrow" src="assets/images/rightArrow.png">
+    <img id="leftArrow" src="assets/images/leftArrow.png">
+
+    <img id="orangeSmileLeft" src="assets/images/orangeSmileLeft.png">
+    <img id="orangeSmileRight" src="assets/images/orangeSmileRight.png">
+    <img id="blueSmileLeft" src="assets/images/blueSmileLeft.png">
+    <img id="blueSmileRight" src="assets/images/blueSmileRight.png">
+    <img id="orangeFrownLeft" src="assets/images/orangeFrownLeft.png">
+    <img id="orangeFrownRight" src="assets/images/orangeFrownRight.png">
+    <img id="blueFrownLeft" src="assets/images/blueFrownLeft.png">
+    <img id="blueFrownRight" src="assets/images/blueFrownRight.png">
+
+    <img id="15SecondsBadge" src="assets/images/15SecondsBadge.png">
+    <img id="30SecondsBadge" src="assets/images/30SecondsBadge.png">
+    <img id="60SecondsBadge" src="assets/images/60SecondsBadge.png">
+    <img id="90SecondsBadge" src="assets/images/90SecondsBadge.png">
+    <img id="endOfSongBadge" src="assets/images/endOfSongBadge.png">
+    <img id="colorBadge" src="assets/images/colorBadge.png">
+    <img id="15SecondsBadgeLocked" src="assets/images/15SecondsBadgeLocked.png">
+    <img id="30SecondsBadgeLocked" src="assets/images/30SecondsBadgeLocked.png">
+    <img id="60SecondsBadgeLocked" src="assets/images/60SecondsBadgeLocked.png">
+    <img id="90SecondsBadgeLocked" src="assets/images/90SecondsBadgeLocked.png">
+    <img id="endOfSongBadgeLocked" src="assets/images/endOfSongBadgeLocked.png">
+    <img id="colorBadgeLocked" src="assets/images/colorBadgeLocked.png">
+
+    <audio id="gameTheme" src="assets/sounds/gameTheme.mp3"></audio>
+    <audio id="heartBeat" src="assets/sounds/heartBeat.mp3"></audio>
+    <audio id="countdown" src="assets/sounds/countdown.mp3"></audio>
+    <audio id="laserSound" src="assets/sounds/laserSound.mp3"></audio>
+    <audio id="levelUpSound" src="assets/sounds/levelUp.mp3"></audio>
+
+    <div id="orange"></div>
+    <div id="blue"></div>
+    <canvas id="gameScreen" width="800" height="600" ></canvas>
+
+    <div id="button1">
+        <img id="buttonLeft" src="assets/images/enterButton.png">
+        <!--<img id="enterButton" src="assets/images/enterButton.png"> -->
+    </div>
+    <div id="button2"> 
+        <img id="buttonRight" src="assets/images/selectButton.png">
+        <!---<img id="selectButton" src="assets/images/selectButton.png">-->
+    </div>
+    
+    <script type='application/javascript' src='fastclick.js'></script>
+    <script type="module" src="main.js"></script>
+</body>
+
+</html>
